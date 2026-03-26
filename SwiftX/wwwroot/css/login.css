@@ -1,0 +1,191 @@
+/* ═══════════════════════════════════════════
+   Admin Login – Styles
+   ═══════════════════════════════════════════ */
+
+/* Login Card */
+.login-card {
+  border-radius: 16px;
+  background: rgba(38, 38, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 28px 24px;
+}
+@media (min-width: 768px) {
+  .login-card {
+    padding: 32px 28px;
+  }
+}
+
+/* Input with Icon */
+.login-input-wrapper {
+  position: relative;
+}
+.login-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 18px;
+  pointer-events: none;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+.login-input-wrapper:focus-within .login-input-icon {
+  color: var(--primary-color);
+}
+.login-input-wrapper .login-input {
+  padding-left: 44px !important;
+}
+
+/* Form Inputs */
+.login-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.login-input:focus {
+  border-color: var(--primary-color);
+}
+.login-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Password Toggle */
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper .login-input {
+  padding-right: 44px;
+}
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+.password-toggle:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Checkbox */
+.login-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.login-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Error Banner */
+.login-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.3s ease-out both;
+}
+.login-error-banner i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.login-error-banner.hidden {
+  display: none;
+}
+
+/* Field Error Message (mirrors rider_signup.css) */
+.field-error {
+  display: block;
+  min-height: 18px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ef4444;
+  line-height: 1.4;
+  visibility: hidden;
+}
+.field-error.visible {
+  visibility: visible;
+}
+
+/* Submit Button (mirrors btn-next from rider_signup.css) */
+.btn-next {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease, background 0.3s ease, transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-next:disabled {
+  background: rgba(211, 69, 2, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+.btn-next:not(:disabled) {
+  background: var(--primary-color);
+  color: #fff;
+}
+.btn-next:not(:disabled):hover {
+  opacity: 0.9;
+}
+.btn-next:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+/* Login Spinner */
+@keyframes loginSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.login-spinner {
+  animation: loginSpin 0.8s linear infinite;
+  font-size: 18px;
+}
+
+/* Button text states */
+.btn-login-text,
+.btn-login-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-login-loader.hidden,
+.btn-login-text.hidden {
+  display: none;
+}

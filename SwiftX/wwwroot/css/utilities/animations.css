@@ -1,0 +1,48 @@
+/* ══════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════ */
+
+/* Fade Up (hero entrance) */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.__fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+.__fade-up--d1 { animation-delay: 0.1s; }
+.__fade-up--d2 { animation-delay: 0.25s; }
+.__fade-up--d3 { animation-delay: 0.4s; }
+.__fade-up--d4 { animation-delay: 0.55s; }
+
+
+/* Scroll-Triggered Reveals */
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.__reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.__reveal--left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.__reveal.is-visible,
+.__reveal--left.is-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.__reveal--d1 { transition-delay: 0.1s; }
+.__reveal--d2 { transition-delay: 0.2s; }
+.__reveal--d3 { transition-delay: 0.35s; }
+.__reveal--d4 { transition-delay: 0.5s; }
+.__reveal--d5 { transition-delay: 0.65s; }

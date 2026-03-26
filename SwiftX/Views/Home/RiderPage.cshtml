@@ -1,0 +1,315 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Ride with SwiftX";
+}
+<!-- HERO SECTION -->
+<section class="relative flex items-center justify-center min-h-[80vh] md:min-h-[85vh] overflow-hidden __bg-hero">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full __hero-glow-lg __glow-bg"></div>
+        <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative flex flex-col items-center md:items-start text-center md:text-left max-w-6xl mx-auto w-full px-6 md:px-10 py-16 md:py-20 __text-light">
+        <span class="__pill __fade-up __fade-up--d1 mb-5">Be a Rider</span>
+        <h1 class="__h1 __fade-up __fade-up--d2 max-w-xl">
+            Earn on Your
+            <span class="__text-primary">Own Schedule</span>
+        </h1>
+        <p class="__body-lg __fade-up __fade-up--d3 mt-5 max-w-lg opacity-70 leading-relaxed">
+            Deliver food, packages, and more — on your own time, with transparent pay.
+        </p>
+        <div class="__fade-up __fade-up--d4 flex flex-col sm:flex-row items-center gap-4 mt-8">
+            <a asp-area="" asp-controller="SignUp" asp-action="Rider" class="__btn __btn--primary">Apply Now</a>
+            <a href="#how-it-works" class="__btn __btn--outline">See How It Works</a>
+        </div>
+        <p class="__fade-up __fade-up--d4 __small mt-4 opacity-40">Open to motorcycle & car owners in Bukidnon</p>
+    </div>
+</section>
+
+
+<!-- Why Ride with SwiftX -->
+<section id="why-ride" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-5xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Benefits</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                Why Ride with <span class="__text-primary">SwiftX</span>
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+                A platform built to respect your time and reward your effort.
+            </p>
+        </div>
+
+        <div class="space-y-5">
+            <!-- Work Anytime -->
+            <article class="__reveal __reveal--d1 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-clock __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Work Anytime</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Go online when you want, log off when you're done. No fixed shifts, no minimum hours.</p>
+                </div>
+            </article>
+
+            <!-- Transparent Earnings -->
+            <article class="__reveal __reveal--d2 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-wallet __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Transparent Earnings</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">See your pay breakdown per delivery. No hidden fees, no unfair deductions — just honest pay.</p>
+                </div>
+            </article>
+
+            <!-- Jobs Near You -->
+            <article class="__reveal __reveal--d3 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-map-pin __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Jobs Near You</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Accept nearby deliveries that match your location so you spend less time waiting and more time earning.</p>
+                </div>
+            </article>
+
+            <!-- Dedicated Support -->
+            <article class="__reveal __reveal--d4 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-headset __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Dedicated Support</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Real people in Bukidnon ready to help — not automated bots from distant call centers.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Who Can Ride -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-4xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Requirements</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                Who Can Ride with <span class="__text-primary">SwiftX</span>
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+                Here's everything you need to start.
+            </p>
+        </div>
+
+        <div class="__reveal __reveal--d1 space-y-4 max-w-2xl mx-auto">
+            <div class="flex items-start gap-4 p-5 rounded-xl __card">
+                <div class="__check-icon mt-0.5">
+                    <i class="ph-fill ph-check-fat __icon-ph-sm"></i>
+                </div>
+                <div>
+                    <h3 class="__body font-medium __text-light">Professional Driver's License</h3>
+                    <p class="__small mt-1 opacity-50">A valid license appropriate for your vehicle type.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 rounded-xl __card">
+                <div class="__check-icon mt-0.5">
+                    <i class="ph-fill ph-check-fat __icon-ph-sm"></i>
+                </div>
+                <div>
+                    <h3 class="__body font-medium __text-light">Smartphone with Internet</h3>
+                    <p class="__small mt-1 opacity-50">Use the SwiftX app to accept jobs and track earnings.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 rounded-xl __card">
+                <div class="__check-icon mt-0.5">
+                    <i class="ph-fill ph-check-fat __icon-ph-sm"></i>
+                </div>
+                <div>
+                    <h3 class="__body font-medium __text-light">Eligible Vehicle</h3>
+                    <p class="__small mt-1 opacity-50">Motorcycle or car that meets SwiftX safety standards.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 rounded-xl __card">
+                <div class="__check-icon mt-0.5">
+                    <i class="ph-fill ph-check-fat __icon-ph-sm"></i>
+                </div>
+                <div>
+                    <h3 class="__body font-medium __text-light">18 Years Old and Above</h3>
+                    <p class="__small mt-1 opacity-50">Must meet the minimum age requirement to ride.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <p class="__small opacity-40 mb-3">Need more details?</p>
+            <a href="#" class="__small __text-primary opacity-80 hover:opacity-100 transition-opacity no-underline">View full requirements (PDF)</a> <!--PDF-->
+        </div>
+    </div>
+</section>
+
+<!-- How to Get Started -->
+<section id="how-it-works" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-3xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Getting Started</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                How to Get Started
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+                Five simple steps to start riding with <span class="__text-primary">SwiftX</span>.
+            </p>
+        </div>
+
+        <!-- Vertical Timeline -->
+        <div class="__reveal __reveal--d1 relative pl-14 space-y-10">
+            <div class="__step-line"></div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">1</div>
+                <div>
+                    <h3 class="__h4 __text-light">Download the App</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Get SwiftX from the App Store or Google Play.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">2</div>
+                <div>
+                    <h3 class="__h4 __text-light">Create Your Account</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Sign up with your basic info in a few taps.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">3</div>
+                <div>
+                    <h3 class="__h4 __text-light">Submit Documents</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Upload your license, ID, and vehicle details for verification.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">4</div>
+                <div>
+                    <h3 class="__h4 __text-light">Wait for Approval</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Our team reviews your info and notifies you once approved.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">5</div>
+                <div>
+                    <h3 class="__h4 __text-light">Go Online & Earn</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Start accepting jobs and earn on your own schedule.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="__reveal __reveal--d2 text-center mt-12">
+            <a asp-area="" asp-controller="SignUp" asp-action="Rider" class="__btn __btn--primary">Start Your Application</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-4xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">FAQ</span>
+            <h2 class="__reveal __reveal--d2 __h2 __text-light">
+                Frequently Asked Questions
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Q1 -->
+            <article class="__reveal __reveal--d1 __faq-item">
+                <button type="button" class="__faq-btn" data-faq-button aria-expanded="true">
+                    <div>
+                        <p class="__micro __faq-label mb-1">Q1.</p>
+                        <h3 class="__body font-semibold __text-light">How do I register as a SwiftX Rider?</h3>
+                    </div>
+                    <i class="ph ph-plus text-xl __text-primary __faq-icon is-open" data-faq-icon></i>
+                </button>
+                <div class="__faq-drawer is-open">
+                    <div>
+                        <div class="px-6 pb-6 __faq-divider">
+                            <p class="__body mt-4 opacity-60 leading-relaxed">
+                                Download the SwiftX Rider app from the App Store or Google Play. Create an account, submit your documents (valid ID, driver's license, vehicle registration), and wait for approval. Our team will review your application and notify you once you're ready to go online.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Q2 -->
+            <article class="__reveal __reveal--d2 __faq-item">
+                <button type="button" class="__faq-btn" data-faq-button aria-expanded="false">
+                    <div>
+                        <p class="__micro __faq-label mb-1">Q2.</p>
+                        <h3 class="__body font-semibold __text-light">Is there a service fee for every order?</h3>
+                    </div>
+                    <i class="ph ph-plus text-xl __text-primary __faq-icon" data-faq-icon></i>
+                </button>
+                <div class="__faq-drawer">
+                    <div>
+                        <div class="px-6 pb-6 __faq-divider">
+                            <p class="__body mt-4 opacity-60 leading-relaxed">
+                                SwiftX charges a small commission fee for every successful delivery. The exact rate is transparently displayed in your rider dashboard, so you always know exactly how much you'll earn before accepting a job.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Q3 -->
+            <article class="__reveal __reveal--d3 __faq-item">
+                <button type="button" class="__faq-btn" data-faq-button aria-expanded="false">
+                    <div>
+                        <p class="__micro __faq-label mb-1">Q3.</p>
+                        <h3 class="__body font-semibold __text-light">Can I edit my schedule?</h3>
+                    </div>
+                    <i class="ph ph-plus text-xl __text-primary __faq-icon" data-faq-icon></i>
+                </button>
+                <div class="__faq-drawer">
+                    <div>
+                        <div class="px-6 pb-6 __faq-divider">
+                            <p class="__body mt-4 opacity-60 leading-relaxed">
+                                Yes, you have full control. Go online or offline at any time through the app. There are no mandatory hours or fixed schedules — ride whenever it works for you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
+        <h2 class="__reveal __reveal--d1 __h2 mb-4 __text-light">
+            Ready to <span class="__text-primary">Ride</span>?
+        </h2>
+        <p class="__reveal __reveal--d2 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+            Join riders across Bukidnon who are earning on their own terms through our delivery platform.
+        </p>
+        <div class="__reveal __reveal--d3 flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <a asp-area="" asp-controller="SignUp" asp-action="Rider" class="__btn __btn--primary">Apply Now</a>
+            <a asp-area="" asp-controller="Home" asp-action="MerchantPage" class="__btn __btn--outline">Partner as Merchant</a>
+        </div>
+    </div>
+</section>

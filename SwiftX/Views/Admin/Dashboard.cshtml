@@ -1,0 +1,184 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Stat Cards -->
+<div class="admin-stat-grid">
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon">
+                <i class="ph ph-package"></i>
+            </div>
+            <span class="admin-stat-badge admin-stat-badge--up">
+                <i class="ph ph-arrow-up"></i> 12%
+            </span>
+        </div>
+        <p class="admin-stat-value">1,248</p>
+        <p class="admin-stat-label">Total Orders</p>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon">
+                <i class="ph ph-motorcycle"></i>
+            </div>
+            <span class="admin-stat-badge admin-stat-badge--up">
+                <i class="ph ph-arrow-up"></i> 8%
+            </span>
+        </div>
+        <p class="admin-stat-value">86</p>
+        <p class="admin-stat-label">Active Riders</p>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon">
+                <i class="ph ph-storefront"></i>
+            </div>
+            <span class="admin-stat-badge admin-stat-badge--up">
+                <i class="ph ph-arrow-up"></i> 5%
+            </span>
+        </div>
+        <p class="admin-stat-value">42</p>
+        <p class="admin-stat-label">Partner Merchants</p>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon">
+                <i class="ph ph-currency-circle-dollar"></i>
+            </div>
+            <span class="admin-stat-badge admin-stat-badge--neutral">
+                <i class="ph ph-minus"></i> 0%
+            </span>
+        </div>
+        <p class="admin-stat-value">&#8369;184,520</p>
+        <p class="admin-stat-label">Revenue (This Month)</p>
+    </div>
+</div>
+
+<!-- Two Column: Recent Orders + Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+
+    <!-- Recent Orders (3/5) -->
+    <div class="lg:col-span-3">
+        <div class="admin-table-card">
+            <div class="admin-table-header">
+                <h2 class="admin-table-title">Recent Orders</h2>
+                <a href="./orders.html" class="admin-nav-item" style="width:auto; padding:6px 12px; font-size:12px;">
+                    View All <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Merchant</th>
+                            <th>Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-1248</td>
+                            <td>Maria Santos</td>
+                            <td>Jollibee Malaybalay</td>
+                            <td><span class="admin-badge admin-badge--delivered"><span class="admin-badge-dot"></span> Delivered</span></td>
+                            <td>&#8369;285</td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-1247</td>
+                            <td>Juan Dela Cruz</td>
+                            <td>Chowking Valencia</td>
+                            <td><span class="admin-badge admin-badge--in-transit"><span class="admin-badge-dot"></span> In Transit</span></td>
+                            <td>&#8369;192</td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-1246</td>
+                            <td>Ana Reyes</td>
+                            <td>Mang Inasal</td>
+                            <td><span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span> Pending</span></td>
+                            <td>&#8369;340</td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-1245</td>
+                            <td>Pedro Garcia</td>
+                            <td>Greenwich</td>
+                            <td><span class="admin-badge admin-badge--delivered"><span class="admin-badge-dot"></span> Delivered</span></td>
+                            <td>&#8369;415</td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-1244</td>
+                            <td>Rosa Lim</td>
+                            <td>KFC Malaybalay</td>
+                            <td><span class="admin-badge admin-badge--cancelled"><span class="admin-badge-dot"></span> Cancelled</span></td>
+                            <td>&#8369;220</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity (2/5) -->
+    <div class="lg:col-span-2">
+        <div class="admin-table-card">
+            <div class="admin-table-header">
+                <h2 class="admin-table-title">Recent Activity</h2>
+            </div>
+            <ul class="admin-activity-list">
+                <li class="admin-activity-item">
+                    <div class="admin-activity-icon admin-activity-icon--rider">
+                        <i class="ph ph-motorcycle"></i>
+                    </div>
+                    <div>
+                        <p class="admin-activity-text"><strong>Mark Villanueva</strong> submitted a rider application.</p>
+                        <p class="admin-activity-time">2 minutes ago</p>
+                    </div>
+                </li>
+                <li class="admin-activity-item">
+                    <div class="admin-activity-icon admin-activity-icon--order">
+                        <i class="ph ph-package"></i>
+                    </div>
+                    <div>
+                        <p class="admin-activity-text">Order <strong>#ORD-1248</strong> was delivered successfully.</p>
+                        <p class="admin-activity-time">15 minutes ago</p>
+                    </div>
+                </li>
+                <li class="admin-activity-item">
+                    <div class="admin-activity-icon admin-activity-icon--merchant">
+                        <i class="ph ph-storefront"></i>
+                    </div>
+                    <div>
+                        <p class="admin-activity-text"><strong>Kusina ni Lola</strong> was approved as a merchant partner.</p>
+                        <p class="admin-activity-time">1 hour ago</p>
+                    </div>
+                </li>
+                <li class="admin-activity-item">
+                    <div class="admin-activity-icon admin-activity-icon--system">
+                        <i class="ph ph-warning"></i>
+                    </div>
+                    <div>
+                        <p class="admin-activity-text">Order <strong>#ORD-1244</strong> was cancelled by customer.</p>
+                        <p class="admin-activity-time">2 hours ago</p>
+                    </div>
+                </li>
+                <li class="admin-activity-item">
+                    <div class="admin-activity-icon admin-activity-icon--rider">
+                        <i class="ph ph-motorcycle"></i>
+                    </div>
+                    <div>
+                        <p class="admin-activity-text"><strong>James Ocampo</strong> was approved as a rider.</p>
+                        <p class="admin-activity-time">3 hours ago</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

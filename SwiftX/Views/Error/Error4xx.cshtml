@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_LayoutError.cshtml";
+}
+<section class="relative flex items-center justify-center min-h-[80vh] w-full overflow-hidden">
+    <!-- Background glows -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.06] __glow-bg"></div>
+    </div>
+
+    <div class="relative flex flex-col items-center text-center px-6 py-16 md:py-20 text-[var(--light-text-color)]">
+        <!-- Error code -->
+        <span class="__fade-up __fade-up--d1 __error-code">404</span>
+
+        <!-- Divider -->
+        <div class="__fade-up __fade-up--d2 __divider-accent my-6"></div>
+
+        <h1 class="__h2 __fade-up __fade-up--d2 max-w-lg">
+            Page <span class="text-[var(--primary-color)]">Not Found</span>
+        </h1>
+
+        <p class="__body-lg __fade-up __fade-up--d3 mt-4 max-w-md opacity-60 leading-relaxed">
+            The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+        </p>
+
+        <div class="__fade-up __fade-up--d4 flex flex-col sm:flex-row items-center gap-4 mt-8">
+            <a href="index.html" class="__btn __btn--primary">Back to Home</a>
+            <a href="javascript:void(0)" class="__btn __btn--outline" id="btn-go-back">Go Back</a>
+        </div>
+
+    </div>
+</section>

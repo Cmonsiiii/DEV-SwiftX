@@ -1,0 +1,301 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "About Us";
+}
+<!-- Hero Section -->
+<section class="relative flex items-center justify-center min-h-[65vh] md:min-h-[70vh] overflow-hidden __bg-hero">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full __hero-glow-lg __glow-bg"></div>
+        <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative flex flex-col items-center text-center max-w-4xl mx-auto w-full px-6 md:px-10 py-16 md:py-20 __text-light">
+        <span class="__pill __fade-up __fade-up--d1 mb-5">About Us</span>
+        <h1 class="__h1 __fade-up __fade-up--d2 max-w-3xl">
+            Born in <span class="__text-primary">Bukidnon</span>,<br>
+            Built for Bukidnon
+        </h1>
+        <p class="__body-lg __fade-up __fade-up--d3 mt-5 md:mt-6 max-w-2xl opacity-70 leading-relaxed">
+            We're not just another delivery app. SwiftX is a homegrown platform designed to solve real problems for real communities in the highlands.
+        </p>
+        <div class="__fade-up __fade-up--d4 flex items-center gap-6 mt-8">
+            <a href="#story" class="__btn __btn--primary">Our Story</a>
+            <a href="#mission" class="__btn __btn--outline">Our Mission</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Intro -->
+<section class="relative __bg-dark border-y __border-subtle">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 py-8 md:py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+            <div class="__fade-up __fade-up--d1">
+                <span class="__h2 __text-primary block">2026</span>
+                <p class="__small opacity-50 mt-1">Founded</p>
+            </div>
+            <div class="__fade-up __fade-up--d2">
+                <span class="__h2 __text-primary block">4+</span>
+                <p class="__small opacity-50 mt-1">Services Planned</p>
+            </div>
+            <div class="__fade-up __fade-up--d3">
+                <span class="__h2 __text-primary block">100%</span>
+                <p class="__small opacity-50 mt-1">Locally Owned</p>
+            </div>
+            <div class="__fade-up __fade-up--d4">
+                <span class="__h2 __text-primary block">1st</span>
+                <p class="__small opacity-50 mt-1">In Bukidnon</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="story" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-20">
+        <!-- Left: Illustration -->
+        <div class="__reveal--left relative flex-1 flex items-center justify-center">
+            <div class="absolute w-[340px] h-[340px] rounded-full __glow-bg-intense pointer-events-none blur-2xl"></div>
+            <img src="~/assets/images/rider_illustration_vector.png" alt="SwiftX Story" class="relative w-full max-w-[320px] drop-shadow-2xl" />
+        </div>
+
+        <!-- Right: Story Content -->
+        <div class="flex-1 __text-light">
+            <span class="__pill __reveal __reveal--d1 mb-5">Our Story</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4">
+                How It All <span class="__text-primary">Started</span>
+            </h2>
+            <div class="__reveal __reveal--d3 space-y-4">
+                <p class="__body opacity-70 leading-relaxed">
+                    SwiftX was born from a simple frustration: why don't the big delivery apps work well in Bukidnon? Long distances between towns, limited merchant coverage, and services designed for metro areas left our communities underserved.
+                </p>
+                <p class="__body opacity-70 leading-relaxed">
+                    So we built our own. A platform made by locals, for locals — one that understands the unique geography, culture, and needs of provincial life. Not a copy of what works in Manila, but something <span class="__text-primary font-medium">purpose-built for the highlands</span>.
+                </p>
+                <p class="__body opacity-70 leading-relaxed">
+                    Today, SwiftX is Bukidnon's first all-in-one delivery ecosystem — and we're just getting started.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why SwiftX -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-5xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Our Edge</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                Why <span class="__text-primary">SwiftX</span>?
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-2xl mx-auto leading-relaxed">
+                We're not competing with the big apps — we're solving problems they never will.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="__reveal __reveal--d1 group relative p-6 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-12 h-12 __icon-box mb-4">
+                        <i class="ph ph-trend-up __icon-ph-lg"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Empowering Economy</h3>
+                    <p class="__body mt-2 opacity-70 leading-relaxed">Investing in our community by fueling Bukidnon's local economy.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d2 group relative p-6 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-12 h-12 __icon-box mb-4">
+                        <i class="ph ph-squares-four __icon-ph-lg"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">The "Everything" App</h3>
+                    <p class="__body mt-2 opacity-70 leading-relaxed">FoodX, ItemX, MotorX, CarX, GroceryX — all your essential local needs in one app.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d3 group relative p-6 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-12 h-12 __icon-box mb-4">
+                        <i class="ph ph-headset __icon-ph-lg"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Human Customer Support</h3>
+                    <p class="__body mt-2 opacity-70 leading-relaxed">Talk to real people in Bukidnon, not automated bots from distant countries.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d4 group relative p-6 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-12 h-12 __icon-box mb-4">
+                        <i class="ph ph-rocket-launch __icon-ph-lg"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Beyond Delivery</h3>
+                    <p class="__body mt-2 opacity-70 leading-relaxed">More features, more control, more ways to simplify your day.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d5 group relative p-6 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-12 h-12 __icon-box mb-4">
+                        <i class="ph ph-map-trifold __icon-ph-lg"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Optimized for Distance</h3>
+                    <p class="__body mt-2 opacity-70 leading-relaxed">We specialized in long-range provincial deliveries that urban apps simply won't touch.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d5 group relative p-6 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-12 h-12 __icon-box mb-4">
+                        <i class="ph ph-users-three __icon-ph-lg"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Community Driven Tech</h3>
+                    <p class="__body mt-2 opacity-70 leading-relaxed">Every update we make is based on feedback from real Bukidnon users.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section id="mission" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full __hero-glow-xs __glow-bg"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">What Drives Us</span>
+            <h2 class="__reveal __reveal--d2 __h2 __text-light">
+                Our Mission <span class="__text-primary">&</span> Vision
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Mission Card -->
+            <div class="__reveal __reveal--d1 group relative p-8 md:p-10 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-14 h-14 __icon-box mb-6">
+                        <i class="ph ph-target __icon-ph-xl"></i>
+                    </div>
+                    <h3 class="__h3 mb-4 __text-light">Our Mission</h3>
+                    <p class="__body opacity-70 leading-relaxed">
+                        To empower rural economies by providing a <span class="__text-primary font-medium">world-class digital ecosystem</span> specifically designed for the unique challenges of provincial and highland life. We bridge the gap between local commerce and modern technology, ensuring that merchants, riders, and customers can thrive together through reliable, long-range logistics and essential services.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="__reveal __reveal--d2 group relative p-8 md:p-10 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-14 h-14 __icon-box mb-6">
+                        <i class="ph ph-binoculars __icon-ph-xl"></i>
+                    </div>
+                    <h3 class="__h3 mb-4 __text-light">Our Vision</h3>
+                    <p class="__body opacity-70 leading-relaxed">
+                        To be the premier digital gateway for <span class="__text-primary font-medium">rural innovation</span> and the most trusted super delivery app for provincial communities. We envision a future where geographical distance is no longer a barrier to growth, and SwiftX stands as a symbol of local pride, reliability, and economic empowerment for generations to come.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-5xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">What We Stand For</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                Our Core <span class="__text-primary">Values</span>
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-2xl mx-auto leading-relaxed">
+                These principles guide every decision we make and every feature we build.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <article class="__reveal __reveal--d1 group relative p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative flex gap-5">
+                    <div class="w-12 h-12 __icon-box shrink-0">
+                        <i class="ph ph-eye __icon-ph-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="__h4 __text-light mb-2">Transparency</h3>
+                        <p class="__body opacity-60 leading-relaxed">No hidden fees, no surprise charges. What you see is what you get — for riders, merchants, and customers alike.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d2 group relative p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative flex gap-5">
+                    <div class="w-12 h-12 __icon-box shrink-0">
+                        <i class="ph ph-handshake __icon-ph-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="__h4 __text-light mb-2">Community First</h3>
+                        <p class="__body opacity-60 leading-relaxed">Every peso spent on SwiftX stays in Bukidnon. We grow when our community grows.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d3 group relative p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative flex gap-5">
+                    <div class="w-12 h-12 __icon-box shrink-0">
+                        <i class="ph ph-lightbulb __icon-ph-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="__h4 __text-light mb-2">Innovation</h3>
+                        <p class="__body opacity-60 leading-relaxed">We don't copy what works in the city. We build solutions designed for the realities of provincial life.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d4 group relative p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative flex gap-5">
+                    <div class="w-12 h-12 __icon-box shrink-0">
+                        <i class="ph ph-shield-check __icon-ph-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="__h4 __text-light mb-2">Reliability</h3>
+                        <p class="__body opacity-60 leading-relaxed">Rain or shine, near or far — when you need something delivered, SwiftX shows up. Every time.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
+        <span class="__pill __reveal __reveal--d1 mb-5">Join Us</span>
+        <h2 class="__reveal __reveal--d1 __h2 mb-4 __text-light">
+            Be Part of <span class="__text-primary">SwiftX</span>
+        </h2>
+        <p class="__reveal __reveal--d2 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+            Whether you're a rider, a merchant, or a customer — there's a place for you in our growing community.
+        </p>
+        <div class="__reveal __reveal--d3 flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <a asp-area="" asp-controller="Home" asp-action="RiderPage" class="__btn __btn--primary">Become a Rider</a>
+            <a asp-area="" asp-controller="Home" asp-action="MerchantPage" class="__btn __btn--outline">Partner as Merchant</a>
+        </div>
+    </div>
+</section>

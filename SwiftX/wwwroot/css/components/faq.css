@@ -1,0 +1,60 @@
+/* ══════════════════════════════════════
+   FAQ ACCORDION
+   ══════════════════════════════════════ */
+
+.__faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.__faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+.__faq-btn:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.__faq-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+.__faq-drawer.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.__faq-drawer > div {
+  overflow: hidden;
+}
+
+.__faq-icon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.__faq-icon.is-open {
+  transform: rotate(45deg);
+}
+
+.__faq-divider {
+  border-top: 1px solid rgba(211, 69, 2, 0.2);
+}
+
+.__faq-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary-color);
+}

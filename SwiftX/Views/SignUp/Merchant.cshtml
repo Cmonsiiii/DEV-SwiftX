@@ -1,0 +1,238 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Sign Up";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<section class="px-4 py-10 md:py-16 bg-[var(--dark-bg-color)] text-[var(--light-text-color)]">
+    <div class="max-w-xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-8 md:mb-10">
+            <h1 class="__h1 text-[var(--primary-color)]">Sign Up</h1>
+            <p class="__body mt-2 opacity-60">Start your application and begin earning with SwiftX.</p>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="flex items-center justify-center mb-10 md:mb-12 px-2" id="step-indicator">
+            <div class="flex flex-col items-center gap-1.5">
+                <div class="step-circle active" data-step-circle="1">1</div>
+                <span class="step-label active" data-step-label="1">Basic Info</span>
+            </div>
+            <div class="step-connector" data-connector="1"></div>
+            <div class="flex flex-col items-center gap-1.5">
+                <div class="step-circle" data-step-circle="2">2</div>
+                <span class="step-label" data-step-label="2">Merchant Documents</span>
+            </div>
+            <div class="step-connector" data-connector="2"></div>
+            <div class="flex flex-col items-center gap-1.5">
+                <div class="step-circle" data-step-circle="3">3</div>
+                <span class="step-label" data-step-label="3">Login Info</span>
+            </div>
+        </div>
+
+        <!-- Form Cards -->
+        <div class="space-y-4" id="form-cards">
+
+            <!-- STEP 1: Basic Info -->
+            <div class="form-card __signup-card" data-card="1">
+                <div class="form-card__header flex items-center gap-3 mb-1">
+                    <div class="step-circle step-circle--card active" data-card-circle="1">1</div>
+                    <h2 class="__h4">Basic info</h2>
+                </div>
+                <div class="form-card__body">
+                    <p class="__small opacity-80 mt-1 mb-1">Please enter your legal personal details.</p>
+                    <p class="__micro text-[var(--primary-color)] mb-5">*All fields required unless noted.</p>
+
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Business Name</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" data-step1 placeholder="Business Name" />
+                            <span class="input-icon"><i class="ph ph-storefront"></i></span>
+                        </div>
+                        <span class="field-error" data-error="businessname"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Owner Name</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" data-step1 placeholder="Owner Name" />
+                            <span class="input-icon"><i class="ph ph-user"></i></span>
+                        </div>
+                        <span class="field-error" data-error="owner"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Last name</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" data-step1 placeholder="Last name" />
+                            <span class="input-icon"><i class="ph ph-user"></i></span>
+                        </div>
+                        <span class="field-error" data-error="lastname"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Business Address</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" data-step1 placeholder="Complete address" />
+                            <span class="input-icon"><i class="ph ph-map-pin"></i></span>
+                        </div>
+                        <span class="field-error" data-error="address"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Business Contact No.</label>
+                        <div class="input-icon-wrap">
+                            <input type="tel" class="signup-input" data-step1 placeholder="09XX XXX XXXX" />
+                            <span class="input-icon"><i class="ph ph-phone"></i></span>
+                        </div>
+                        <span class="field-error" data-error="contact"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Business Email Address</label>
+                        <div class="input-icon-wrap">
+                            <input type="email" class="signup-input" data-step1 placeholder="Business Email Address" />
+                            <span class="input-icon"><i class="ph ph-envelope-simple"></i></span>
+                        </div>
+                        <span class="field-error" data-error="businessEmail"></span>
+                    </div>
+
+                    <button type="button" class="btn-next" id="btn-step1" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Requirements & Documents -->
+            <div class="form-card collapsed __signup-card" data-card="2">
+                <div class="form-card__header flex items-center gap-3 mb-1">
+                    <div class="step-circle step-circle--card" data-card-circle="2">2</div>
+                    <h2 class="__h4">Requirements & Documents</h2>
+                </div>
+                <div class="form-card__body">
+                    <p class="__small opacity-80 mt-1 mb-1">Upload clear, readable copies of your documents.</p>
+                    <p class="__micro text-[var(--primary-color)] mb-5">*All fields required. Accepted formats: JPG, PNG, PDF (max 5 MB each).</p>
+
+                    <!-- Document Uploads -->
+                    <div class="upload-group">
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-file-text"></i></div>
+                            <div class="upload-card__info">
+                                <label class="__label">*BIR Form 2303</label>
+                                <p class="upload-card__hint">Certificate of Registration</p>
+                            </div>
+                            <div class="file-upload">
+                                <input type="file" accept=".jpg,.jpeg,.png,.pdf" data-step2 />
+                                <div class="file-upload__text">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span class="__small">Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error" data-error="businessRegistration"></span>
+                        </div>
+
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-file-text"></i></div>
+                            <div class="upload-card__info">
+                                <label class="__label">DTI Business Name Certificate</label>
+                                <p class="upload-card__hint">Optional but Recommended</p>
+                            </div>
+                            <div class="file-upload">
+                                <input type="file" accept=".jpg,.jpeg,.png,.pdf"/>
+                                <div class="file-upload__text">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span class="__small">Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error" data-error="businessCertificate"></span>
+                        </div>
+
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-file-text"></i></div>
+                            <div class="upload-card__info">
+                                <label class="__label">*Barangay Business Clearance</label>
+                                <p class="upload-card__hint">for Small home-based temporary alternative</p>
+                            </div>
+                            <div class="file-upload">
+                                <input type="file" accept=".jpg,.jpeg,.png,.pdf" data-step2 />
+                                <div class="file-upload__text">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span class="__small">Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error" data-error="businessClearance"></span>
+                        </div>
+
+                     
+                    </div>
+
+                    <!-- GCash -->
+                    <div class="upload-divider">
+                        <span>Payment Info</span>
+                    </div>
+                    <div class="mb-5">
+                        <label class="__label block mb-1.5">*GCash Number</label>
+                        <div class="input-icon-wrap">
+                            <input type="tel" class="signup-input" data-step2 placeholder="09XX XXX XXXX" />
+                            <span class="input-icon"><i class="ph ph-wallet"></i></span>
+                        </div>
+                        <span class="field-error" data-error="gcash_number"></span>
+                    </div>
+
+                    <button type="button" class="btn-next" id="btn-step2" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Account Setup -->
+            <div class="form-card collapsed __signup-card" data-card="3">
+                <div class="form-card__header flex items-center gap-3 mb-1">
+                    <div class="step-circle step-circle--card" data-card-circle="3">3</div>
+                    <h2 class="__h4">Account Setup</h2>
+                </div>
+                <div class="form-card__body">
+                    <p class="__small opacity-80 mt-1 mb-1">Create your login credentials.</p>
+                    <p class="__micro text-[var(--primary-color)] mb-5">*All fields required.</p>
+
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Username</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" data-step3 placeholder="Username" />
+                            <span class="input-icon"><i class="ph ph-at"></i></span>
+                        </div>
+                        <span class="field-error" data-error="username"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Email Address</label>
+                        <div class="input-icon-wrap">
+                            <input type="email" class="signup-input" data-step3 placeholder="Email Address" />
+                            <span class="input-icon"><i class="ph ph-envelope-simple"></i></span>
+                        </div>
+                        <span class="field-error" data-error="email"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Password</label>
+                        <div class="password-wrapper input-icon-wrap">
+                            <input type="password" class="signup-input" data-step3 data-pw placeholder="Password" />
+                            <span class="input-icon"><i class="ph ph-lock-simple"></i></span>
+                            <button type="button" class="password-toggle" data-toggle-pw>
+                                <svg class="w-5 h-5 eye-open" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <svg class="w-5 h-5 eye-closed hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18" /></svg>
+                            </button>
+                        </div>
+                        <span class="field-error" data-error="password"></span>
+                    </div>
+                    <div class="mb-6">
+                        <label class="__label block mb-1.5">*Confirm Password</label>
+                        <div class="password-wrapper input-icon-wrap">
+                            <input type="password" class="signup-input" data-step3 data-pw placeholder="Confirm Password" />
+                            <span class="input-icon"><i class="ph ph-lock-simple"></i></span>
+                            <button type="button" class="password-toggle" data-toggle-pw>
+                                <svg class="w-5 h-5 eye-open" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <svg class="w-5 h-5 eye-closed hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18" /></svg>
+                            </button>
+                        </div>
+                        <span class="field-error" data-error="confirm-password"></span>
+                    </div>
+
+                    <button type="button" class="btn-next" id="btn-step3" disabled>Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

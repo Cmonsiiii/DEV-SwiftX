@@ -1,0 +1,69 @@
+/* ══════════════════════════════════════
+   COLOR THEMES & BACKGROUNDS UTILITIES
+   ══════════════════════════════════════ */
+
+.__bg-nav {
+    background-color: var(--dark-bg-nav);
+}
+
+.__bg-hero {
+    background-color: var(--dark-bg-hero);
+}
+
+.__bg-dark {
+    background-color: var(--dark-bg-color);
+}
+
+.__text-light {
+    color: var(--light-text-color);
+}
+
+.__text-primary {
+    color: var(--primary-color);
+}
+
+.__border-subtle {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.__divider-subtle {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+.__footer-link {
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.__footer-link:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.__hero-glow-lg {
+    opacity: 0.08;
+}
+
+.__hero-glow-sm {
+    opacity: 0.05;
+}
+
+.__hero-glow-xs {
+    opacity: 0.03;
+}
+
+.__glow-bg {
+    background: radial-gradient(circle, rgba(211, 69, 2, 1), transparent 70%);
+}
+
+.__glow-bg-intense {
+    background: radial-gradient(circle, rgba(211, 69, 2, 1), transparent 60%);
+    opacity: 0.25;
+}
+
+.__check-list-icon {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+

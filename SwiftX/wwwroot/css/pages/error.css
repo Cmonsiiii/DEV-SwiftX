@@ -1,0 +1,61 @@
+/* ══════════════════════════════════════
+   ERROR / STATUS / MAINTENANCE PAGES
+   ══════════════════════════════════════ */
+
+.__error-code {
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: clamp(100px, 20vw, 180px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--primary-color);
+  opacity: 0.9;
+}
+
+.__divider-accent {
+  width: 64px;
+  height: 1px;
+  background: rgba(211, 69, 2, 0.4);
+}
+
+.__ping-dot {
+  background: rgba(211, 69, 2, 0.1);
+}
+
+.__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.__progress-track {
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+.__progress-bar {
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--primary-color);
+}
+
+/* Maintenance Animations */
+
+@keyframes gearSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes gearSpinReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@keyframes progressPulse {
+  0%, 100% { width: 30%; }
+  50% { width: 70%; }
+}
+.__gear-spin { animation: gearSpin 6s linear infinite; }
+.__gear-spin-reverse { animation: gearSpinReverse 4s linear infinite; }
+.__progress-pulse { animation: progressPulse 2.5s ease-in-out infinite; }

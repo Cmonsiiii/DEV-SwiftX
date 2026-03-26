@@ -1,0 +1,257 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<!-- #region Hero Section -->
+<section id="start" class="relative flex items-center justify-center min-h-[80vh] md:min-h-[85vh] overflow-hidden __bg-hero">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full __hero-glow-lg __glow-bg"></div>
+        <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative flex flex-col items-center text-center px-6 py-16 md:py-20 __text-light">
+        <h1 class="__h1 __fade-up __fade-up--d1 max-w-3xl">
+            Bukidnon's Pride<br>
+            <span class="__text-primary">First All-In-One Delivery App</span>
+        </h1>
+        <p class="__body-lg __fade-up __fade-up--d3 mt-5 md:mt-6 max-w-lg opacity-80 leading-relaxed">
+            Order from nearby restaurants and shops, delivered by trusted local riders.
+        </p>
+        <div class="__fade-up __fade-up--d4 flex flex-col sm:flex-row items-center gap-4 mt-8 md:mt-10">
+            <a href="#download" class="__btn __btn--primary">Download SwiftX</a>
+            <a href="#about" class="__btn __btn--outline">Learn More</a>
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+
+<!--#region About Section -->
+<section id="about" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-6xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-24">
+        <!-- Left: Illustration -->
+        <div class="__reveal--left relative flex-1 flex items-center justify-center">
+            <div class="absolute w-[380px] h-[380px] rounded-full __glow-bg-intense pointer-events-none blur-2xl"></div>
+            <div class="absolute w-[340px] h-[340px] rounded-full pointer-events-none"></div>
+            <img src="~/assets/images/rider_illustration_vector.png" alt="SwiftX Rider" class="relative w-full max-w-[360px] drop-shadow-2xl" />
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex-1 __text-light">
+            <span class="__pill __reveal __reveal--d1 mb-5">About SwiftX</span>
+
+            <h2 class="__reveal __reveal--d2 __h2 mb-3">
+                Built for <span class="__text-primary">Bukidnon</span>
+            </h2>
+
+            <p class="__reveal __reveal--d3 __body-lg opacity-65 mb-8 leading-relaxed max-w-lg">
+                Connecting customers, businesses, and riders in one app
+            </p>
+
+            <p class="__reveal __reveal--d4 __body opacity-60 leading-relaxed max-w-lg">
+                <span class="__text-primary font-medium">SwiftX</span>
+                <span class="opacity-60">is a community-driven delivery platform designed to make ordering and sending items more convenient across Bukidnon. By connecting customers, local businesses, and riders, the app helps support everyday deliveries through one simple and easy-to-use platform.</span>
+            </p>
+
+            <!-- Stats row -->
+            <div class="__reveal __reveal--d5 flex items-center gap-10 mt-10 pt-8 border-t __border-subtle">
+                <div>
+                    <span class="__h3 __text-primary">--</span>
+                    <p class="__small opacity-50 mt-1">Local Riders</p>
+                </div>
+                <div>
+                    <span class="__h3 __text-primary">--</span>
+                    <p class="__small opacity-50 mt-1">Partner Shops</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- #endregion-->
+
+<!-- #region Features Section -->
+<section id="features" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-6xl mx-auto px-6 md:px-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill">Our Services</span>
+            <h2 class="__h2 mb-4 __text-light">
+                Everything You Need in
+                <span class="__text-primary">One App</span>
+            </h2>
+            <p class="__body-lg opacity-65 max-w-2xl mx-auto leading-relaxed">
+                From food delivery to package sending, SwiftX has got you covered with our comprehensive delivery solutions.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid sm:grid-cols-2 gap-8">
+            <!-- FoodX -->
+            <div class="__reveal __reveal--d1 group relative p-8 __card rounded-2xl transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="__icon-box w-14 h-14 mb-6">
+                        <i class="ph ph-hamburger __icon-ph-xl"></i>
+                    </div>
+                    <h3 class="__h4 mb-3 __text-light">FoodX</h3>
+                    <p class="__body opacity-60 leading-relaxed">
+                        Order from your favorite local restaurants and get fresh meals delivered straight to your door.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ItemX -->
+            <div class="__reveal __reveal--d2 group relative p-8 __card rounded-2xl transition-all duration-300 opacity-60">
+                <div class="relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="__icon-box--muted w-14 h-14 __icon-box">
+                            <i class="ph ph-package __icon-ph-xl"></i>
+                        </div>
+                        <span class="__pill">Coming Soon</span>
+                    </div>
+                    <h3 class="__h4 mb-3 __text-light">ItemX</h3>
+                    <p class="__body opacity-60 leading-relaxed">
+                        Send and receive packages across Bukidnon with secure and reliable same-day delivery.
+                    </p>
+                </div>
+            </div>
+
+            <!-- MotoX -->
+            <div class="__reveal __reveal--d3 group relative p-8 __card rounded-2xl transition-all duration-300 opacity-60">
+                <div class="relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="__icon-box--muted w-14 h-14 __icon-box">
+                            <i class="ph ph-motorcycle __icon-ph-xl"></i>
+                        </div>
+                        <span class="__pill">Coming Soon</span>
+                    </div>
+                    <h3 class="__h4 mb-3 __text-light">MotoX</h3>
+                    <p class="__body opacity-60 leading-relaxed">
+                        Book a motorcycle ride for quick, affordable trips around town — anytime you need one.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CarX -->
+            <div class="__reveal __reveal--d4 group relative p-8 __card rounded-2xl transition-all duration-300 opacity-60">
+                <div class="relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="__icon-box--muted w-14 h-14 __icon-box">
+                            <i class="ph ph-car __icon-ph-xl"></i>
+                        </div>
+                        <span class="__pill">Coming Soon</span>
+                    </div>
+                    <h3 class="__h4 mb-3 __text-light">CarX</h3>
+                    <p class="__body opacity-60 leading-relaxed">
+                        Need a comfortable ride? Book a car for longer trips or when you need extra space.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+
+<!-- #region CTA Section -->
+<section id="cta" class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 -right-32 w-[600px] h-[600px] rounded-full __hero-glow-sm __glow-bg"></div>
+        <div class="absolute top-1/2 -left-32 w-[500px] h-[500px] rounded-full __hero-glow-xs __glow-bg"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+        <span class="__pill">Grow with SwiftX</span>
+
+        <h2 class="__h2 mb-6 __text-light">
+            Be Part of
+            <span class="__text-primary">Our Community</span>
+        </h2>
+
+        <p class="__body-lg opacity-65 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Whether you're looking to earn as a rider or grow your business as a merchant, SwiftX offers opportunities to connect and thrive in Bukidnon's delivery ecosystem.
+        </p>
+
+        <!-- CTA Cards -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Rider CTA -->
+            <div class="__reveal group relative p-8 __card rounded-2xl transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="__icon-box w-16 h-16 mb-6 mx-auto">
+                        <i class="ph ph-shield-check __icon-ph-xxl"></i>
+                    </div>
+
+                    <h3 class="__h3 mb-3 __text-light">Become a Rider</h3>
+                    <p class="__body opacity-60 leading-relaxed mb-6">
+                        Earn on your own terms with a platform that values your time and safety. No hidden fees, no unfair deductions.
+                    </p>
+
+                    <a href="./rider.html" class="__btn __btn--primary w-full justify-center">
+                        Apply to Ride
+                    </a>
+
+                    <!-- Benefits -->
+                    <ul class="mt-6 space-y-3 text-sm text-left">
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Transparent earnings — see your pay breakdown per delivery
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Reliable weekly payouts directly to your account
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Flexible hours — ride when it works for you
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Dedicated rider support & onboarding assistance
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Merchant CTA -->
+            <div class="__reveal group relative p-8 __card rounded-2xl transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="__icon-box w-16 h-16 mb-6 mx-auto">
+                        <i class="ph ph-storefront __icon-ph-xxl"></i>
+                    </div>
+
+                    <h3 class="__h3 mb-3 __text-light">Partner as Merchant</h3>
+                    <p class="__body opacity-60 leading-relaxed mb-6">
+                        List your business on a platform that puts local merchants first. Fair commission rates, no lock-in contracts.
+                    </p>
+
+                    <a href="./merchant.html" class="__btn __btn--outline w-full justify-center">
+                        Partner with Us
+                    </a>
+
+                    <!-- Benefits -->
+                    <ul class="mt-6 space-y-3 text-sm text-left">
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Fair, transparent commission — no surprise charges
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Reach new customers across Bukidnon instantly
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            Simple dashboard to manage orders & track sales
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-check-bold __check-list-icon mt-0.5"></i>
+                            No lock-in — cancel anytime, no penalties
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+

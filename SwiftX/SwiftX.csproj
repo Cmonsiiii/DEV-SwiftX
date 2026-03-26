@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<Target Name="BuildCss" BeforeTargets="Compile">
+		<Exec Command="npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/output.css --watch" />
+	</Target>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\favicon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\Assets\fonts\GT-America-Standard-Thin.otf" />
+	  <None Include="wwwroot\Assets\fonts\GT-America.otf" />
+	  <None Include="wwwroot\Assets\fonts\Sora-Regular.ttf" />
+	  <None Include="wwwroot\Assets\fonts\SuisseIntl-Light.ttf" />
+	  <None Include="wwwroot\Assets\fonts\SuisseIntl-Regular.ttf" />
+	  <None Include="wwwroot\Assets\images\rider_illustration_vector.png" />
+	  <None Include="wwwroot\Assets\images\swiftX_logo.png" />
+	  <None Include="wwwroot\favicon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	    <PrivateAssets>all</PrivateAssets>
+	  </PackageReference>
+	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+	</ItemGroup>
+
+</Project>

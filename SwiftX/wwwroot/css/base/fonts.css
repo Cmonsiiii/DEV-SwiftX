@@ -1,0 +1,145 @@
+/* ══════════════════════════════════════
+   FONTS & CSS VARIABLES
+   ══════════════════════════════════════ */
+
+@font-face {
+    font-family: 'GT America';
+    src: url('../../assets/fonts/GT-America.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('../../assets/fonts/GT-America-Standard-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../../assets/fonts/Sora-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Fonts */
+    --font-main: 'Sora';
+    --font-secondary: 'GT America';
+
+
+    /* Background Colors */
+    --dark-bg-color: #2C2C2C;
+    --dark-bg-hero: #242424;
+    --dark-bg-card: #323232;
+    --dark-bg-nav: rgba(36,36,36,0.8);
+    --light-bg-color: #f7f7f7;
+
+    /* Textcolors */
+    --light-text-color: #ffffff;
+    --dark-text-color:#000000;
+
+    /* Color Palette */
+    --primary-color: #D34502;
+    --secondary-color: ;
+    --light-accent-color:;
+    --dark-accent-color:;
+
+
+    /* Font Sizes */
+    --fs-display: clamp(40px, 6vw, 64px);
+    --fs-h1: clamp(32px, 4.5vw, 48px);
+    --fs-h2: clamp(28px, 3.8vw, 40px);
+    --fs-h3: clamp(22px, 3vw, 28px);
+    --fs-h4: clamp(18px, 2.4vw, 22px);
+    --fs-body-lg: 18px;
+    --fs-body: 16px;
+    --fs-label: 15px;
+    --fs-small: 14px;
+    --fs-micro: 12px;
+    /*Line Heights */
+
+    --lh-tight: 1.15;
+    --lh-heading: 1.25;
+    --lh-body: 1.6;
+    --lh-compact: 1.45;
+    /* Font Weights */
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+}
+
+.__h1 {
+    font-family: var(--font-main);
+    font-size: var(--fs-h1);
+    line-height: var(--lh-tight);
+    font-weight: var(--fw-semibold);
+}
+
+.__h2 {
+    font-family: var(--font-main);
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+    font-weight: var(--fw-semibold);
+}
+
+.__h3 {
+    font-family: var(--font-main);
+    font-size: var(--fs-h3);
+    line-height: var(--lh-heading);
+    font-weight: var(--fw-semibold);
+}
+
+.__h4 {
+    font-family: var(--font-main);
+    font-size: var(--fs-h4);
+    line-height: var(--lh-heading);
+    font-weight: var(--fw-medium);
+}
+
+.__body-lg {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-body);
+    font-weight: var(--fw-regular);
+}
+
+.__body {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    font-weight: var(--fw-regular);
+}
+
+.__label {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-label);
+    line-height: var(--lh-compact);
+    font-weight: var(--fw-medium);
+}
+
+.__small {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-small);
+    line-height: var(--lh-compact);
+    font-weight: var(--fw-regular);
+}
+
+.__micro {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-micro);
+    line-height: var(--lh-compact);
+    font-weight: var(--fw-regular);
+}
+
+.__btn-text {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-label);
+    line-height: var(--lh-compact);
+    font-weight: var(--fw-medium);
+}

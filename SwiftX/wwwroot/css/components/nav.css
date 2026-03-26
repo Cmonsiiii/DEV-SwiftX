@@ -1,0 +1,38 @@
+/* ══════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════ */
+
+/* Nav: hamburger → X when open */
+.nav-open .nav-bar:nth-child(1){
+        transform: translateY(7px) rotate(45deg);
+}
+.nav-open .nav-bar:nth-child(2){
+        opacity: 0;
+}
+.nav-open .nav-bar:nth-child(3){
+        transform: translateY(-7px) rotate(-45deg);
+}
+
+.__nav-menu {
+  transition: max-height 0.3s ease-in-out;
+}
+
+.__nav-link {
+  color: var(--light-text-color);
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.__nav-link:hover {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+.__nav-toggle {
+  color: var(--light-text-color);
+}
+.__nav-toggle:hover,
+.__nav-toggle:focus {
+  background: rgba(255, 255, 255, 0.1);
+}

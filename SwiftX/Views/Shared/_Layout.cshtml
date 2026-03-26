@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | SwiftX</title>
+
+    <!-- CDN-like link for Tailwind CSS -->
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
+
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+
+    <!-- PHOSPOR ICONS -->
+    <link rel="stylesheet" href="~/lib/phosphor-icons/regular/style.css" />
+    <link rel="stylesheet" href="~/lib/phosphor-icons/bold/style.css" />
+    <link rel="stylesheet" href="~/lib/phosphor-icons/fill/style.css" />
+        
+</head>
+<body class="__fullpage">
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-5 py-4 md:px-8 __bg-nav backdrop-blur-xl border-b __border-subtle" aria-label="Main navigation">
+        <a href="index.html" class="flex items-center text-inherit no-underline" aria-label="SwiftX Home">
+            <img src="~/assets/images/swiftX_logo.png" alt="SwiftX" class="h-9 w-auto block" />
+        </a>
+        <button type="button" id="nav-toggle" class="md:hidden flex flex-col justify-center gap-1.5 w-9 h-9 p-0 border-0 bg-transparent __nav-toggle rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/20" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+            <span class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center nav-bar"></span>
+            <span class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 nav-bar"></span>
+            <span class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center nav-bar"></span>
+        </button>
+        <ul id="nav-menu" role="menubar" class="flex flex-col md:flex-row md:items-center md:gap-8 gap-0 list-none m-0 p-0 absolute md:relative top-full left-0 right-0 md:top-auto max-h-0 md:max-h-none overflow-hidden md:overflow-visible __nav-menu __bg-hero md:bg-transparent border-b __border-subtle md:border-0 md:shadow-none shadow-lg">
+            <li role="none" class="border-b __border-subtle md:border-0"><a asp-area="" asp-controller="Home" asp-action="RiderPage" class="__nav-link block md:inline py-4 px-5 md:py-0 md:px-0" role="menuitem">Be a Rider</a></li>
+            <li role="none" class="border-b __border-subtle md:border-0"><a asp-area="" asp-controller="Home" asp-action="MerchantPage" class="__nav-link block md:inline py-4 px-5 md:py-0 md:px-0" role="menuitem">Merchant Partner</a></li>
+            <li role="none" class="border-b __border-subtle md:border-0"><a asp-area="" asp-controller="Home" asp-action="About" class="__nav-link block md:inline py-4 px-5 md:py-0 md:px-0" role="menuitem">About</a></li>
+            <li role="none" class="border-b __border-subtle md:border-0"><a asp-area="" asp-controller="Admin" asp-action="Index" class="__nav-link block md:inline py-4 px-5 md:py-0 md:px-0" role="menuitem">Admin</a></li>
+        </ul>
+    </nav>
+
+    <main role="main" class="mt-0 __main">
+        @RenderBody()
+    </main>
+
+
+    <footer id="contact" class="px-6 py-10 md:py-12 bg-[var(--dark-bg-hero)] text-[var(--light-text-color)]">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col items-center gap-6">
+                <!-- Footer links -->
+                <div class="flex flex-row items-center justify-center gap-6">
+                    <a href="#" class="__social-icon" aria-label="Facebook">
+                        <i class="ph ph-facebook-logo"></i>
+                    </a>
+                    <a href="#" class="__social-icon" aria-label="Email">
+                        <i class="ph ph-envelope-simple"></i>
+                    </a>
+                    <a href="#" class="__social-icon" aria-label="Instagram">
+                        <i class="ph ph-instagram-logo"></i>
+                    </a>
+                    <a href="#" class="__social-icon" aria-label="YouTube">
+                        <i class="ph ph-youtube-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-80">
+                <span class="text-[var(--primary-color)]">2026 © SwiftX All Rights Reserved</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/nav.js"></script>
+    <script src="~/js/scroll-reveal.js"></script>
+    <script src="~/js/faq.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

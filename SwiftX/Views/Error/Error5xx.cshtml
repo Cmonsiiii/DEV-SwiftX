@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_LayoutError.cshtml";
+}
+<section class="relative flex items-center justify-center min-h-[80vh] w-full overflow-hidden">
+    <!-- Background glows -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.06] __glow-bg"></div>
+    </div>
+
+    <div class="relative flex flex-col items-center text-center px-6 py-16 md:py-20 text-[var(--light-text-color)]">
+        <!-- Animated pulse icon -->
+        <div class="__fade-up __fade-up--d1 mb-6">
+            <div class="relative w-20 h-20 mx-auto">
+                <div class="absolute inset-0 rounded-full __ping-dot animate-ping"></div>
+                <div class="relative __icon-box w-20 h-20 rounded-full">
+                    <i class="ph ph-warning text-[40px]"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error code -->
+        <span class="__fade-up __fade-up--d1 __error-code">500</span>
+
+        <!-- Divider -->
+        <div class="__fade-up __fade-up--d2 __divider-accent my-6"></div>
+
+        <h1 class="__h2 __fade-up __fade-up--d2 max-w-lg">
+            Something Went <span class="text-[var(--primary-color)]">Wrong</span>
+        </h1>
+
+        <p class="__body-lg __fade-up __fade-up--d3 mt-4 max-w-md opacity-60 leading-relaxed">
+            Our servers are having a rough time right now. We're already working on it. Please try again in a moment.
+        </p>
+
+        <div class="__fade-up __fade-up--d4 flex flex-col sm:flex-row items-center gap-4 mt-8">
+            <a href="javascript:void(0)" class="__btn __btn--primary" id="btn-retry">Try Again</a>
+            <a href="index.html" class="__btn __btn--outline">Back to Home</a>
+        </div>
+    </div>
+</section>

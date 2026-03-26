@@ -1,0 +1,17 @@
+/* ══════════════════════════════════════
+   PILLS / BADGES
+   ══════════════════════════════════════ */
+
+.__pill {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 9999px;
+        border: 1px solid rgba(211, 69, 2, 0.2);
+        color: var(--primary-color);
+        font-family: var(--font-secondary);
+        font-size: var(--fs-micro);
+        font-weight: var(--fw-regular);
+        line-height: var(--lh-compact);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+}

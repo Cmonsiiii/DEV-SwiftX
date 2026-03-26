@@ -1,0 +1,303 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Partner with SwiftX";
+}
+
+<!-- HERO SECTION -->
+<section class="relative flex items-center justify-center min-h-[80vh] md:min-h-[85vh] overflow-hidden __bg-hero">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full __hero-glow-lg __glow-bg"></div>
+        <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative flex flex-col items-center md:items-start text-center md:text-left max-w-6xl mx-auto w-full px-6 md:px-10 py-16 md:py-20 __text-light">
+        <span class="__pill __fade-up __fade-up--d1 mb-5">Merchant Partner</span>
+        <h1 class="__h1 __fade-up __fade-up--d2 max-w-xl">
+            Built to Support
+            <span class="__text-primary">Your Business</span>
+        </h1>
+        <p class="__body-lg __fade-up __fade-up--d3 mt-5 max-w-lg opacity-70 leading-relaxed">
+            List your store, reach more customers, and let SwiftX handle the deliveries.
+        </p>
+        <div class="__fade-up __fade-up--d4 flex flex-col sm:flex-row items-center gap-4 mt-8">
+            <a asp-area="" asp-controller="SignUp" asp-action="Merchant" class="__btn __btn--primary">Become a Partner</a>
+            <a href="#how-it-works" class="__btn __btn--outline">See How It Works</a>
+        </div>
+        <p class="__fade-up __fade-up--d4 __small mt-4 opacity-40">Open to restaurants, retail shops & home-based businesses in Bukidnon</p>
+    </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section id="why-partner" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-5xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Why Partner</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                Why Partner with <span class="__text-primary">SwiftX</span>
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+                Tools designed to support your daily operations.
+            </p>
+        </div>
+
+        <div class="space-y-5">
+            <!-- Increase Your Visibility -->
+            <article class="__reveal __reveal--d1 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-eye __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Increase Your Visibility</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Reach more local customers by showcasing your business on SwiftX.</p>
+                </div>
+            </article>
+
+            <!-- Attract More Customers -->
+            <article class="__reveal __reveal--d2 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-users-three __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Attract More Customers</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Get online exposure, drive extra sales, and expand your customer base.</p>
+                </div>
+            </article>
+
+            <!-- Manage Your Store with Ease -->
+            <article class="__reveal __reveal--d3 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-storefront __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Manage Your Store with Ease</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Update items, track performance, and manage orders in one place.</p>
+                </div>
+            </article>
+
+            <!-- Fair Commission -->
+            <article class="__reveal __reveal--d4 group relative flex gap-5 p-6 md:p-7 rounded-2xl __card transition-all duration-300">
+                <div class="__glow-hover"></div>
+                <div class="relative shrink-0 w-14 h-14 __icon-box">
+                    <i class="ph ph-handshake __icon-ph-xl"></i>
+                </div>
+                <div class="relative min-w-0">
+                    <h3 class="__h4 __text-primary">Fair Commission</h3>
+                    <p class="__body mt-1 opacity-60 leading-relaxed">Transparent rates with no lock-in contracts — cancel anytime, no penalties.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- WHO CAN PARTNER -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-5xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Eligibility</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                Who Can Partner with <span class="__text-primary">SwiftX</span>
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+                SwiftX is open to a wide range of local businesses.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="__reveal __reveal--d1 group relative p-6 rounded-2xl __card transition-all duration-300 text-center">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-14 h-14 __icon-box mb-4 mx-auto">
+                        <i class="ph ph-cooking-pot __icon-ph-xl"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Restaurants & Cafes</h3>
+                    <p class="__body mt-2 opacity-60 leading-relaxed">Offer delivery to more hungry customers.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d2 group relative p-6 rounded-2xl __card transition-all duration-300 text-center">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-14 h-14 __icon-box mb-4 mx-auto">
+                        <i class="ph ph-shopping-bag __icon-ph-xl"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Retail & Small Shops</h3>
+                    <p class="__body mt-2 opacity-60 leading-relaxed">Extend your shop's reach beyond foot traffic.</p>
+                </div>
+            </article>
+
+            <article class="__reveal __reveal--d3 group relative p-6 rounded-2xl __card transition-all duration-300 text-center sm:col-span-2 lg:col-span-1">
+                <div class="__glow-hover"></div>
+                <div class="relative">
+                    <div class="w-14 h-14 __icon-box mb-4 mx-auto">
+                        <i class="ph ph-house-line __icon-ph-xl"></i>
+                    </div>
+                    <h3 class="__h4 __text-primary">Home-Based Businesses</h3>
+                    <p class="__body mt-2 opacity-60 leading-relaxed">Reach new customers without your own delivery riders.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="mt-10 text-center">
+            <p class="__small opacity-40 mb-3">Have a store?</p>
+            <a href="#get-started" class="__small __text-primary opacity-80 hover:opacity-100 transition-opacity no-underline">See partnership details</a> <!--PDF-->
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-3xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">Getting Started</span>
+            <h2 class="__reveal __reveal--d2 __h2 mb-4 __text-light">
+                How to Get Started
+            </h2>
+            <p class="__reveal __reveal--d3 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+                Four simple steps to partner with <span class="__text-primary">SwiftX</span>.
+            </p>
+        </div>
+
+        <!-- Vertical Timeline -->
+        <div class="__reveal __reveal--d1 relative pl-14 space-y-10">
+            <div class="__step-line"></div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">1</div>
+                <div>
+                    <h3 class="__h4 __text-light">Sign Up</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Share your store details in a quick online form.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">2</div>
+                <div>
+                    <h3 class="__h4 __text-light">Submit Requirements</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Upload your documents and business permits for verification.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">3</div>
+                <div>
+                    <h3 class="__h4 __text-light">Account Review</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">We'll review your information and notify you once approved.</p>
+                </div>
+            </div>
+
+            <div class="relative flex gap-5">
+                <div class="__step-number absolute -left-14">4</div>
+                <div>
+                    <h3 class="__h4 __text-light">Go Live</h3>
+                    <p class="__small mt-1 opacity-50 leading-relaxed">Start receiving orders and grow your business with SwiftX.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="get-started" class="__reveal __reveal--d2 text-center mt-12">
+            <a asp-area="" asp-controller="SignUp" asp-action="Merchant" class="__btn __btn--primary">Apply as Merchant</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="relative py-20 md:py-28 overflow-hidden __bg-hero">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="max-w-4xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="__pill __reveal __reveal--d1 mb-5">FAQ</span>
+            <h2 class="__reveal __reveal--d2 __h2 __text-light">
+                Frequently Asked Questions
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Q1 -->
+            <article class="__reveal __reveal--d1 __faq-item">
+                <button type="button" class="__faq-btn" data-faq-button aria-expanded="true">
+                    <div>
+                        <p class="__micro __faq-label mb-1">Q1.</p>
+                        <h3 class="__body font-semibold __text-light">How do I register my store as a SwiftX Partner?</h3>
+                    </div>
+                    <i class="ph ph-plus text-xl __text-primary __faq-icon is-open" data-faq-icon></i>
+                </button>
+                <div class="__faq-drawer is-open">
+                    <div>
+                        <div class="px-6 pb-6 __faq-divider">
+                            <p class="__body mt-4 opacity-60 leading-relaxed">
+                                Fill out the merchant application form on our website or through the SwiftX Merchant app. Our team will review your application and notify you once your store is ready to go live. The process typically takes a few business days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Q2 -->
+            <article class="__reveal __reveal--d2 __faq-item">
+                <button type="button" class="__faq-btn" data-faq-button aria-expanded="false">
+                    <div>
+                        <p class="__micro __faq-label mb-1">Q2.</p>
+                        <h3 class="__body font-semibold __text-light">Is there a Service Fee for every order?</h3>
+                    </div>
+                    <i class="ph ph-plus text-xl __text-primary __faq-icon" data-faq-icon></i>
+                </button>
+                <div class="__faq-drawer">
+                    <div>
+                        <div class="px-6 pb-6 __faq-divider">
+                            <p class="__body mt-4 opacity-60 leading-relaxed">
+                                SwiftX charges a small commission fee for every successful delivery. The rate is transparently displayed in your merchant dashboard, so there are no surprise charges. We believe in fair, upfront pricing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Q3 -->
+            <article class="__reveal __reveal--d3 __faq-item">
+                <button type="button" class="__faq-btn" data-faq-button aria-expanded="false">
+                    <div>
+                        <p class="__micro __faq-label mb-1">Q3.</p>
+                        <h3 class="__body font-semibold __text-light">Can I edit my menu/list?</h3>
+                    </div>
+                    <i class="ph ph-plus text-xl __text-primary __faq-icon" data-faq-icon></i>
+                </button>
+                <div class="__faq-drawer">
+                    <div>
+                        <div class="px-6 pb-6 __faq-divider">
+                            <p class="__body mt-4 opacity-60 leading-relaxed">
+                                Yes, you have full control. Use the merchant dashboard to add, edit, or remove items at any time. You can also update prices, descriptions, and availability to keep your store fresh and up to date.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-20 md:py-28 overflow-hidden __bg-dark">
+    <div class="absolute top-0 left-0 w-full h-px __divider-subtle"></div>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full __hero-glow-sm __glow-bg"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
+        <h2 class="__reveal __reveal--d1 __h2 mb-4 __text-light">
+            Ready to <span class="__text-primary">Grow</span>?
+        </h2>
+        <p class="__reveal __reveal--d2 __body-lg opacity-60 max-w-xl mx-auto leading-relaxed">
+            Join local merchants across Bukidnon and start offering delivery through our network.
+        </p>
+        <div class="__reveal __reveal--d3 flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <a asp-area="" asp-controller="SignUp" asp-action="Merchant" class="__btn __btn--primary">Apply as Merchant</a>
+            <a asp-area="" asp-controller="Home" asp-action="Rider" class="__btn __btn--outline">Become a Rider</a>
+        </div>
+    </div>
+</section>
