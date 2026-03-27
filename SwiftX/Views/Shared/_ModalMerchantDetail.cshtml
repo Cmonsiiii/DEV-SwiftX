@@ -1,0 +1,286 @@
+@{
+
+}
+
+<div class="admin-modal-overlay" id="merchant-detail-modal">
+    <div class="admin-modal admin-modal--lg">
+        <div class="admin-modal__header">
+            <h2 class="admin-modal__title">
+                <i class="ph ph-storefront"></i> Merchant Profile
+            </h2>
+            <button class="admin-modal__close" onclick="closeModal('merchant-detail-modal')">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="admin-modal__body">
+
+            <!-- ── Hero ── -->
+            <div class="rmod-hero">
+                <div class="rmod-hero__av-wrap">
+                    <img class="rmod-hero__av-img"
+                         src="~/Assets/images/profile.jpg"
+                         alt="Jollibee Malaybalay"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                    <div class="rmod-hero__av-fallback" style="display:none;">
+                        <i class="ph ph-storefront"></i>
+                    </div>
+                    <span class="rmod-hero__av-dot rmod-hero__av-dot--active"></span>
+                </div>
+                <div>
+                    <p class="rmod-hero__name">Jollibee Malaybalay</p>
+                    <div class="rmod-hero__meta">
+                        <span class="rmod-hero__id">Merchant-001</span>
+                        <span class="admin-badge admin-badge--active">
+                            <span class="admin-badge-dot"></span>Active
+                        </span>
+                    </div>
+                </div>
+                <div class="rmod-hero__btns">
+                    <button class="admin-modal-btn admin-modal-btn--ghost" onclick="openModal('merchant-edit-modal')">
+                        <i class="ph ph-pencil-simple"></i> Edit
+                    </button>
+                    <button class="admin-modal-btn admin-modal-btn--danger">
+                        <i class="ph ph-prohibit"></i> Deactivate
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── Tabs ── -->
+            <div class="rmod-tabs">
+                <button class="rmod-tab active" data-tab="mchmod-info">
+                    <i class="ph ph-identification-card"></i> Information
+                </button>
+                <button class="rmod-tab" data-tab="mchmod-docs">
+                    <i class="ph ph-files"></i> Documents
+                </button>
+                <button class="rmod-tab" data-tab="mchmod-activity">
+                    <i class="ph ph-list-checks"></i> Order History
+                </button>
+            </div>
+
+            <!-- ── TAB: Information ── -->
+            <div class="rmod-panel active" id="mchmod-info">
+                <div class="rmod-earnings">
+                    <div class="rmod-earn">
+                        <p class="rmod-earn__val">&#8369;18,450</p>
+                        <p class="rmod-earn__lbl">This Week</p>
+                    </div>
+                    <div class="rmod-earn">
+                        <p class="rmod-earn__val">&#8369;72,300</p>
+                        <p class="rmod-earn__lbl">This Month</p>
+                    </div>
+                    <div class="rmod-earn">
+                        <p class="rmod-earn__val">&#8369;480,600</p>
+                        <p class="rmod-earn__lbl">All Time</p>
+                    </div>
+                </div>
+                <div class="rmod-info-grid">
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Business Name</p>
+                        <p class="rmod-info-block__val">Jollibee Malaybalay</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Owner / Contact</p>
+                        <p class="rmod-info-block__val">Juan Santos</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Phone</p>
+                        <p class="rmod-info-block__val">088-212-3456</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Email</p>
+                        <p class="rmod-info-block__val">jollibee.mby@email.com</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Address</p>
+                        <p class="rmod-info-block__val">CM Recto Ave., Malaybalay City, Bukidnon</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Category</p>
+                        <p class="rmod-info-block__val">Restaurant — Fast Food</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Date Registered</p>
+                        <p class="rmod-info-block__val">March 1, 2025</p>
+                    </div>
+                    <div class="rmod-info-block">
+                        <p class="rmod-info-block__lbl">Total Orders Served</p>
+                        <p class="rmod-info-block__val">1,248</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── TAB: Documents ── -->
+            <div class="rmod-panel" id="mchmod-docs">
+                <p class="rmod-docs-hint">
+                    Submitted business documents and their current verification status.
+                </p>
+
+                <div class="rmod-doc-row">
+                    <div>
+                        <p class="rmod-doc-row__name">DTI / BIR Registration</p>
+                        <p class="rmod-doc-row__sub">DTI-2024-00123 &mdash; Valid until Dec 2026</p>
+                    </div>
+                    <div class="rmod-doc-row__right">
+                        <span class="rmod-doc-status rmod-doc-status--ok">
+                            <i class="ph ph-check-circle"></i> Verified
+                        </span>
+                        <button class="admin-modal-doc__preview-btn"
+                                onclick="openDocPreview('pdf','../assets/docs/sampleDocumentPrev.pdf','DTI Registration')">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rmod-doc-row">
+                    <div>
+                        <p class="rmod-doc-row__name">Mayor's Permit / Business Permit</p>
+                        <p class="rmod-doc-row__sub">Issued Jan 2026 — Malaybalay City LGU</p>
+                    </div>
+                    <div class="rmod-doc-row__right">
+                        <span class="rmod-doc-status rmod-doc-status--ok">
+                            <i class="ph ph-check-circle"></i> Verified
+                        </span>
+                        <button class="admin-modal-doc__preview-btn">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rmod-doc-row">
+                    <div>
+                        <p class="rmod-doc-row__name">Sanitary Permit</p>
+                        <p class="rmod-doc-row__sub">Renewal pending</p>
+                    </div>
+                    <div class="rmod-doc-row__right">
+                        <span class="rmod-doc-status rmod-doc-status--pending">
+                            <i class="ph ph-clock"></i> Pending
+                        </span>
+                        <button class="admin-modal-doc__preview-btn">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rmod-doc-row">
+                    <div>
+                        <p class="rmod-doc-row__name">Store Photos</p>
+                        <p class="rmod-doc-row__sub">Exterior and interior views</p>
+                    </div>
+                    <div class="rmod-doc-row__right">
+                        <span class="rmod-doc-status rmod-doc-status--ok">
+                            <i class="ph ph-check-circle"></i> Verified
+                        </span>
+                        <button class="admin-modal-doc__preview-btn">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rmod-doc-row">
+                    <div>
+                        <p class="rmod-doc-row__name">Bank / GCash Settlement Account</p>
+                        <p class="rmod-doc-row__sub">BDO — Account ending 4821</p>
+                    </div>
+                    <div class="rmod-doc-row__right">
+                        <span class="rmod-doc-status rmod-doc-status--ok">
+                            <i class="ph ph-check-circle"></i> Verified
+                        </span>
+                        <button class="admin-modal-doc__preview-btn">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── TAB: Order History ── -->
+            <div class="rmod-panel" id="mchmod-activity">
+                <div class="admin-stat-details-grid">
+                    <div class="admin-stat-details">
+                        <div class="admin-stat-header">
+                            <div class="admin-stat-icon"><i class="ph ph-package"></i></div>
+                        </div>
+                        <p class="admin-stat-value">34</p>
+                        <p class="admin-stat-label">Today's Orders</p>
+                    </div>
+                    <div class="admin-stat-details">
+                        <div class="admin-stat-header">
+                            <div class="admin-stat-icon"><i class="ph ph-check-circle"></i></div>
+                        </div>
+                        <p class="admin-stat-value">1,248</p>
+                        <p class="admin-stat-label">Total Orders</p>
+                    </div>
+                    <div class="admin-stat-details">
+                        <div class="admin-stat-header">
+                            <div class="admin-stat-icon"><i class="ph ph-star"></i></div>
+                        </div>
+                        <p class="admin-stat-value">4.8</p>
+                        <p class="admin-stat-label">Avg. Rating</p>
+                    </div>
+                </div>
+
+                <div class="admin-modal-table-wrap admin-modal-table-wrap--spaced">
+                    <table class="admin-table admin-table--compact">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Time</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-1248</td>
+                                <td>2:34 PM</td>
+                                <td>Maria Santos</td>
+                                <td>6 items</td>
+                                <td>
+                                    <span class="admin-badge admin-badge--delivered">
+                                        <span class="admin-badge-dot"></span>Delivered
+                                    </span>
+                                </td>
+                                <td>&#8369;285</td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1247</td>
+                                <td>1:15 PM</td>
+                                <td>Juan Dela Cruz</td>
+                                <td>3 items</td>
+                                <td>
+                                    <span class="admin-badge admin-badge--delivered">
+                                        <span class="admin-badge-dot"></span>Delivered
+                                    </span>
+                                </td>
+                                <td>&#8369;192</td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1246</td>
+                                <td>12:08 PM</td>
+                                <td>Ana Reyes</td>
+                                <td>2 items</td>
+                                <td>
+                                    <span class="admin-badge admin-badge--cancelled">
+                                        <span class="admin-badge-dot"></span>Cancelled
+                                    </span>
+                                </td>
+                                <td>&#8369;0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ── Footer ── -->
+            <div class="rmod-footer">
+                <button class="admin-modal-btn admin-modal-btn--ghost"
+                        onclick="closeModal('merchant-detail-modal')">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

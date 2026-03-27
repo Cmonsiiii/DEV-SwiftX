@@ -1,7 +1,9 @@
-/* ══════════════════════════════════════
-   FONTS & CSS VARIABLES
-   ══════════════════════════════════════ */
+/*
+    v1.0.3
+*/
 
+
+/* ── Web Fonts ── */
 @font-face {
     font-family: 'GT America';
     src: url('../../assets/fonts/GT-America.otf') format('opentype');
@@ -26,31 +28,63 @@
     font-display: swap;
 }
 
+/* ── Design Tokens ── */
 :root {
     /* Fonts */
-    --font-main: 'Sora';
-    --font-secondary: 'GT America';
+    --font-main: 'Sora', sans-serif;
+    --font-secondary: 'GT America', sans-serif;
 
 
-    /* Background Colors */
+    /* ── Backgrounds ── */
     --dark-bg-color: #2C2C2C;
     --dark-bg-hero: #242424;
     --dark-bg-card: #323232;
-    --dark-bg-nav: rgba(36,36,36,0.8);
+    --dark-bg-nav: rgba(36, 36, 36, 0.8);
     --light-bg-color: #f7f7f7;
 
-    /* Textcolors */
+
+    /* ── Text ── */
     --light-text-color: #ffffff;
-    --dark-text-color:#000000;
+    --dark-text-color: #000000;
 
-    /* Color Palette */
+
+    /* ── Brand / Primary ── */
     --primary-color: #D34502;
-    --secondary-color: ;
-    --light-accent-color:;
-    --dark-accent-color:;
+    --primary-bg-subtle: rgba(211, 69, 2, 0.12);
+    --primary-bg-faint: rgba(211, 69, 2, 0.04);
+    --primary-border-subtle: rgba(211, 69, 2, 0.20);
+    --primary-border-faint: rgba(211, 69, 2, 0.25);
+    --primary-border-focus: rgba(211, 69, 2, 0.30);
 
 
-    /* Font Sizes */
+    /* ── Semantic: Success ── */
+    --success-color: #22c55e;
+    --success-bg-subtle: rgba(34, 197, 94, 0.10);
+    --success-bg-hover: rgba(34, 197, 94, 0.20);
+
+    /* ── Semantic: Warning ── */
+    --warning-color: #facc15;
+    --warning-color-dark: #ca8a04;
+    --warning-bg-subtle: rgba(250, 204, 21, 0.10);
+    --warning-bg-hover: rgba(250, 204, 21, 0.20);
+
+
+    /* ── Semantic: Danger ── */
+    --danger-color: #ef4444;
+    --danger-color-dark: #dc2626;
+    --danger-bg-subtle: rgba(239, 68, 68, 0.06);
+    --danger-bg-hover: rgba(239, 68, 68, 0.20);
+    --danger-border-subtle: rgba(239, 68, 68, 0.15);
+
+    /* ── Semantic: Info ── */
+    --info-color: #3b82f6;
+    --info-bg-subtle: rgba(59, 130, 246, 0.10);
+
+    /* ── Semantic: Purple ── */
+    --purple-color: #a855f7;
+    --purple-bg-subtle: rgba(168, 85, 247, 0.10);
+
+    /* ── Font Sizes ── */
     --fs-display: clamp(40px, 6vw, 64px);
     --fs-h1: clamp(32px, 4.5vw, 48px);
     --fs-h2: clamp(28px, 3.8vw, 40px);
@@ -61,19 +95,22 @@
     --fs-label: 15px;
     --fs-small: 14px;
     --fs-micro: 12px;
-    /*Line Heights */
 
+
+    /* ── Line Heights ── */
     --lh-tight: 1.15;
     --lh-heading: 1.25;
-    --lh-body: 1.6;
+    --lh-body: 1.60;
     --lh-compact: 1.45;
-    /* Font Weights */
 
+
+    /* ── Font Weights ── */
     --fw-regular: 400;
     --fw-medium: 500;
     --fw-semibold: 600;
 }
 
+/* ── Semantic type classes ── */
 .__h1 {
     font-family: var(--font-main);
     font-size: var(--fs-h1);

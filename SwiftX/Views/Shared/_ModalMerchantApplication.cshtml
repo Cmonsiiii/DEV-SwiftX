@@ -1,0 +1,234 @@
+@{
+
+}
+
+<div class="admin-modal-overlay" id="merchant-application-modal">
+    <div class="admin-modal admin-modal--lg">
+        <div class="admin-modal__header">
+            <h2 class="admin-modal__title">
+                <i class="ph ph-storefront"></i> Merchant Application Review
+            </h2>
+            <button class="admin-modal__close" onclick="closeModal('merchant-application-modal')">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="admin-modal__body">
+
+            <!-- ══ HERO ══ -->
+            <div class="appmod-hero">
+                <div class="appmod-hero__photo-wrap">
+                    <img class="appmod-hero__photo"
+                         src="~/Assets/images/profile.jpg"
+                         alt="Maria Santos"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                    <div class="appmod-hero__photo-fallback" style="display:none;">
+                        <i class="ph ph-storefront"></i>
+                    </div>
+                    <span class="appmod-hero__dot"></span>
+                </div>
+
+                <div class="appmod-hero__info">
+                    <p class="appmod-hero__name">Maria Santos</p>
+                    <div class="appmod-hero__meta">
+                        <span class="admin-badge admin-badge--pending">
+                            <span class="admin-badge-dot"></span>Pending Review
+                        </span>
+                        <span class="appmod-hero__chip">
+                            <i class="ph ph-calendar-blank"></i> Applied Feb 19, 2026
+                        </span>
+                    </div>
+                </div>
+
+                <span class="appmod-hero__chip appmod-hero__chip--id">
+                    <i class="ph ph-hash"></i> APP-2026-018
+                </span>
+            </div>
+
+            <!-- ══ BODY: 2 columns ══ -->
+            <div class="appmod-body">
+
+                <!-- Left: Business Info -->
+                <div class="admin-modal-section">
+                    <h3 class="admin-modal-section__title">
+                        <i class="ph ph-storefront admin-modal-section__icon"></i>
+                        Business Information
+                    </h3>
+                    <div class="appmod-info-grid">
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Business Name</span>
+                            <span class="admin-modal-info-field__value">Kusina ni Lola</span>
+                        </div>
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Business Type</span>
+                            <span class="admin-modal-info-field__value">Restaurant — Filipino</span>
+                        </div>
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Owner Name</span>
+                            <span class="admin-modal-info-field__value">Maria Santos</span>
+                        </div>
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Contact</span>
+                            <span class="admin-modal-info-field__value">0917-123-4567</span>
+                        </div>
+                        <div class="admin-modal-info-field admin-modal-info-field--full">
+                            <span class="admin-modal-info-field__label">Email</span>
+                            <span class="admin-modal-info-field__value">maria@kusinalola.ph</span>
+                        </div>
+                        <div class="admin-modal-info-field admin-modal-info-field--full">
+                            <span class="admin-modal-info-field__label">Business Address</span>
+                            <span class="admin-modal-info-field__value">
+                                Purok 4, Brgy. Poblacion, Valencia City, Bukidnon
+                            </span>
+                        </div>
+                        <div class="admin-modal-info-field admin-modal-info-field--full">
+                            <span class="admin-modal-info-field__label">Settlement Account</span>
+                            <span class="admin-modal-info-field__value">
+                                GCash — 0917-123-4567
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Submitted Requirements -->
+                <div class="admin-modal-section">
+                    <h3 class="admin-modal-section__title">
+                        <i class="ph ph-files admin-modal-section__icon"></i>
+                        Submitted Requirements
+                    </h3>
+                    <div class="admin-modal-doc-list">
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">DTI / BIR Registration</span>
+                                <button class="admin-modal-doc__preview-btn"
+                                        onclick="openDocPreview('pdf','../assets/sample_data/SwiftXDetails.pdf','DTI Registration')">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve active">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Mayor's / Business Permit</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve active">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Sanitary Permit</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral active">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Store Photos</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral active">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Settlement Account Proof</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve active">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /.appmod-body -->
+
+            <!-- ══ DECISION BAR ══ -->
+            <div class="appmod-decision">
+                <div class="appmod-decision__textarea-wrap">
+                    <span class="admin-modal-info-label">
+                        Notes for Applicant
+                        <span class="admin-modal-info-label__hint">
+                            (optional — shown to applicant)
+                        </span>
+                    </span>
+                    <textarea class="admin-modal-textarea"
+                              placeholder="e.g. Sanitary permit photo is unclear, please resubmit..."></textarea>
+                </div>
+                <div class="appmod-decision__actions">
+                    <button class="admin-modal-btn admin-modal-btn--ghost"
+                            onclick="closeModal('merchant-application-modal')">
+                        Cancel
+                    </button>
+                    <button class="admin-modal-btn admin-modal-btn--reject">
+                        <i class="ph ph-x-circle"></i> Reject
+                    </button>
+                    <button class="admin-modal-btn admin-modal-btn--approve">
+                        <i class="ph ph-check-circle"></i> Accept Application
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

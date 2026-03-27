@@ -1,0 +1,223 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Merchants Application";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="admin-stat-grid" style="margin-bottom:22px;">
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-clock"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 4</span>
+        </div>
+        <p class="admin-stat-value">18</p>
+        <p class="admin-stat-label">Pending Review</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-check-circle"></i></div></div>
+        <p class="admin-stat-value">54</p>
+        <p class="admin-stat-label">Accepted</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-x-circle"></i></div></div>
+        <p class="admin-stat-value">9</p>
+        <p class="admin-stat-label">Rejected</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-storefront"></i></div></div>
+        <p class="admin-stat-value">81</p>
+        <p class="admin-stat-label">Total Applications</p>
+    </div>
+</div>
+
+<!-- TABLE CARD -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <div>
+            <h2 class="admin-table-title">All Merchant Applications</h2>
+            <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px;">
+                81 total &middot; 18 pending &middot; 54 accepted &middot; 9 rejected
+            </p>
+        </div>
+        <div class="admin-table-actions">
+            <div class="admin-search">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" id="merchant-apps-search" placeholder="Search applicants..." />
+            </div>
+            <div class="admin-filter-bar" id="merchant-apps-filter-bar">
+                <button class="admin-filter-btn active" data-filter="all">All</button>
+                <button class="admin-filter-btn" data-filter="pending">Pending</button>
+                <button class="admin-filter-btn" data-filter="approved">Approved</button>
+                <button class="admin-filter-btn" data-filter="rejected">Rejected</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-table-wrap">
+        <table class="admin-table" id="merchant_apps_table">
+            <thead>
+                <tr>
+                    <th>Applicant</th>
+                    <th>Business Type</th>
+                    <th>DTI / BIR #</th>
+                    <th>Applied</th>
+                    <th>Status</th>
+                    <th style="width:120px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @* PENDING *@
+                <tr>
+                    <td>
+                        <div class="td-person">
+                            <div class="td-person__avatar"><i class="ph ph-user"></i></div>
+                            <div>
+                                <p class="td-person__name">Maria Santos</p>
+                                <p class="td-person__sub">maria@kusinalola.ph &middot; 0917-123-4567</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="td-biztype">
+                            <i class="ph ph-fork-knife"></i>
+                            <span class="td-biztype__label">Restaurant — Filipino</span>
+                        </div>
+                    </td>
+                    <td><span class="td-biz td-biz--ok">DTI-2024-00123</span></td>
+                    <td class="td-date">Feb 19, 2026</td>
+                    <td><span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span></td>
+                    <td>
+                        <div class="admin-actions-cell">
+                            <button class="admin-action-btn" title="View Application"
+                                    onclick="openModal('merchant-application-modal')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                            <button class="admin-action-btn admin-action-btn--approve" title="Quick Accept">
+                                <i class="ph ph-check"></i>
+                            </button>
+                            <button class="admin-action-btn admin-action-btn--reject" title="Quick Reject">
+                                <i class="ph ph-x"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                @* ACCEPTED OR APPROVED*@
+                <tr>
+                    <td>
+                        <div class="td-person">
+                            <div class="td-person__avatar"><i class="ph ph-user"></i></div>
+                            <div>
+                                <p class="td-person__name">Ana Reyes</p>
+                                <p class="td-person__sub">ana@brewhaven.ph &middot; 0932-789-0123</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="td-biztype">
+                            <i class="ph ph-coffee"></i>
+                            <span class="td-biztype__label">Cafe — Coffee & Pastries</span>
+                        </div>
+                    </td>
+                    <td><span class="td-biz td-biz--ok">BIR-2023-55821</span></td>
+                    <td class="td-date">Jan 15, 2026</td>
+                    <td><span class="admin-badge admin-badge--active"><span class="admin-badge-dot"></span>Approved</span></td>
+                    <td>
+                        <div class="admin-actions-cell">
+                            <button class="admin-action-btn" title="View Application"
+                                    onclick="openModal('merchant-application-modal')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                @* REJECTED *@
+                <tr>
+                    <td>
+                        <div class="td-person td-person--muted">
+                            <div class="td-person__avatar td-person__avatar--muted"><i class="ph ph-user"></i></div>
+                            <div>
+                                <p class="td-person__name">Ramon Cruz</p>
+                                <p class="td-person__sub">ramon@cruzfoods.ph &middot; 0945-321-6789</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="td-biztype td-biztype--dim">
+                            <i class="ph ph-fork-knife"></i>
+                            <span class="td-biztype__label">Restaurant — Seafood</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="td-biz td-biz--expired">
+                            <i class="ph ph-warning-circle"></i> Expired
+                        </span>
+                    </td>
+                    <td class="td-date td-date--muted">Jan 22, 2026</td>
+                    <td><span class="admin-badge admin-badge--rejected"><span class="admin-badge-dot"></span>Rejected</span></td>
+                    <td>
+                        <div class="admin-actions-cell">
+                            <button class="admin-action-btn" title="View Application"
+                                    onclick="openModal('merchant-application-modal')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="admin-pagination" id="merchant-apps-dt-footer"></div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var merchantAppsTable = $('#merchant_apps_table').DataTable({
+                pageLength: 10,
+                ordering: true,
+                searching: true,
+                lengthChange: false,
+                responsive: true,
+                autoWidth: false,
+                dom: 't<"admin-pagination"<"dataTables_info"i><"admin-pagination-btns"p>>',
+                columnDefs: [
+                    { orderable: false, targets: [5] }
+                ],
+                language: {
+                    paginate: {
+                        previous: '<i class="ph ph-caret-left"></i>',
+                        next:     '<i class="ph ph-caret-right"></i>'
+                    },
+                    info: 'Showing _START_–_END_ of _TOTAL_ applications'
+                },
+                drawCallback: function () {
+                    $(this.api().table().container())
+                        .find('.dataTables_paginate .paginate_button')
+                        .addClass('admin-page-btn')
+                        .filter('.current').addClass('active');
+                }
+            });
+
+            $('#merchant-apps-search').on('input', function () {
+                merchantAppsTable.search(this.value).draw();
+            });
+
+            $('#merchant-apps-filter-bar').on('click', '.admin-filter-btn', function () {
+                $('#merchant-apps-filter-bar .admin-filter-btn').removeClass('active');
+                $(this).addClass('active');
+                var f = $(this).data('filter');
+                merchantAppsTable.column(4).search(f === 'all' ? '' : '^' + f.charAt(0).toUpperCase() + f.slice(1) + '$', true, false).draw();
+            });
+        });
+    </script>
+}
+@await Html.PartialAsync("_ModalMerchantApplication")
+@await Html.PartialAsync("_ModalDocPreview")

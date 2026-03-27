@@ -1,0 +1,206 @@
+﻿@{
+    ViewData["Title"] = "Orders";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- ── Stat Cards ── -->
+<div class="admin-stat-grid">
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-package"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up">
+                <i class="ph ph-arrow-up"></i> 12%
+            </span>
+        </div>
+        <p class="admin-stat-value">1,248</p>
+        <p class="admin-stat-label">Total Orders</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon admin-stat-icon--success">
+                <i class="ph ph-check-circle"></i>
+            </div>
+        </div>
+        <p class="admin-stat-value">1,089</p>
+        <p class="admin-stat-label">Delivered</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon admin-stat-icon--info">
+                <i class="ph ph-truck"></i>
+            </div>
+        </div>
+        <p class="admin-stat-value">38</p>
+        <p class="admin-stat-label">In Transit</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon admin-stat-icon--danger">
+                <i class="ph ph-x-circle"></i>
+            </div>
+        </div>
+        <p class="admin-stat-value">67</p>
+        <p class="admin-stat-label">Cancelled</p>
+    </div>
+</div>
+
+<!-- ── Orders Table ── -->
+<div class="order-layout">
+    <div class="admin-table-card">
+        <div class="admin-table-header">
+            <div>
+                <h2 class="admin-table-title">All Orders</h2>
+                <p class="admin-table-subtitle">1,248 total &middot; 38 in transit &middot; 67 cancelled</p>
+            </div>
+            <div class="admin-table-actions">
+                <div class="admin-search">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="orders-search" placeholder="Search orders..." />
+                </div>
+                <div class="admin-filter-bar" id="orders-filter-bar">
+                    <button class="admin-filter-btn active" data-filter="all">All</button>
+                    <button class="admin-filter-btn" data-filter="pending">Pending</button>
+                    <button class="admin-filter-btn" data-filter="in-transit">In Transit</button>
+                    <button class="admin-filter-btn" data-filter="delivered">Delivered</button>
+                    <button class="admin-filter-btn" data-filter="cancelled">Cancelled</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-table-wrap">
+            <table class="admin-table" id="orders_table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Merchant</th>
+                        <th>Rider</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th style="width:120px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @* DELIVERED *@
+                    <tr>
+                        <td><span class="dash-order-id">#ORD-1248</span></td>
+                        <td><span class="dash-customer">Maria Santos</span></td>
+                        <td></td>
+                        <td><span class="dash-customer">Juswa</span></td>
+                        <td><span class="admin-badge admin-badge--delivered"><span class="admin-badge-dot"></span>Delivered</span></td>
+                        <td class="td-amount">&#8369;285</td>
+                        <td class="td-date">Feb 21, 2026</td>
+                        <td>
+                            <button class="admin-action-btn" title="View Details"
+                                    onclick="openModal('order-detail-modal')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    @* IN TRANSIT / EN ROUTE / ON THE WAY *@
+                    <tr>
+                        <td><span class="dash-order-id">#ORD-1247</span></td>
+                        <td><span class="dash-customer">Juan Dela Cruz</span></td>
+                        <td><span class="dash-merchant">Chowking Valencia</span></td>
+                        <td><span class="dash-customer">Mark Villanueva</span></td>
+                        <td><span class="admin-badge admin-badge--in-transit"><span class="admin-badge-dot"></span>In Transit</span></td>
+                        <td class="td-amount">&#8369;192</td>
+                        <td class="td-date">Feb 21, 2026</td>
+                        <td>
+                            <button class="admin-action-btn" title="View Details">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    @* PENDING  *@
+                    <tr>
+                        <td><span class="dash-order-id">#ORD-1246</span></td>
+                        <td><span class="dash-customer">Ana Reyes</span></td>
+                        <td><span class="dash-merchant">Chowking Valencia</span></td>
+                        <td><span class="dash-customer">Mark Villanueva</span></td>
+                        <td><span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span></td>
+                        <td class="td-amount">&#8369;192</td>
+                        <td class="td-date">Feb 21, 2026</td>
+                        <td>
+                            <button class="admin-action-btn" title="View Details">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    @* CANCELLED *@
+                    <tr>
+                        <td><span class="dash-order-id">#ORD-1245</span></td>
+                        <td><span class="dash-customer">Rosa Lim</span></td>
+                        <td><span class="dash-merchant">KFC Malaybalay</span></td>
+                        <td>&mdash;</td>
+                        <td><span class="admin-badge admin-badge--cancelled"><span class="admin-badge-dot"></span>Cancelled</span></td>
+                        <td class="td-amount">&#8369;192</td>
+                        <td class="td-date">Feb 21, 2026</td>
+                        <td>
+                            <button class="admin-action-btn" title="View Details">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(function () {
+
+            function stylePageBtns(api) {
+                $(api.table().container())
+                    .find('.dataTables_paginate .paginate_button')
+                    .addClass('admin-page-btn')
+                    .filter('.current').addClass('active');
+            }
+
+            var ordersTable = $('#orders_table').DataTable({
+                pageLength: 10,
+                ordering:     true,
+                searching:    false,      // driven by #orders-search
+                lengthChange: false,
+                dom: 't<"admin-pagination"<"dataTables_info"i><"admin-pagination-btns"p>>',
+                columnDefs: [
+                    { orderable: false, targets: [7] },
+                    { type: 'num', targets: [5] }
+                ],
+                language: {
+                    paginate: {
+                        previous: '<i class="ph ph-caret-left"></i>',
+                        next:     '<i class="ph ph-caret-right"></i>'
+                    },
+                    info: 'Showing _START_–_END_ of _TOTAL_ orders'
+                },
+                drawCallback: function () {
+                    stylePageBtns(this.api());
+                }
+            });
+
+            $('#orders-search').on('input', function () {
+                ordersTable.search(this.value).draw();
+            });
+
+            $('#orders-filter-bar').on('click', '.admin-filter-btn', function () {
+                $('#orders-filter-bar .admin-filter-btn').removeClass('active');
+                $(this).addClass('active');
+                var f = $(this).data('filter');
+                var term = '';
+                if (f === 'in-transit') term = '^In Transit$';
+                else if (f !== 'all')   term = '^' + f.charAt(0).toUpperCase() + f.slice(1) + '$';
+                ordersTable.column(4).search(term, true, false).draw();
+            });
+
+        });
+    </script>
+}
+
+@await Html.PartialAsync("_ModalOrderDetails")

@@ -1,0 +1,126 @@
+@{
+
+}
+
+<div class="admin-modal-overlay" id="merchant-edit-modal">
+    <div class="admin-modal admin-modal--lg">
+        <div class="admin-modal__header">
+            <h2 class="admin-modal__title">
+                <i class="ph ph-pencil-simple"></i> Edit Merchant Profile
+            </h2>
+            <button class="admin-modal__close" onclick="closeModal('merchant-edit-modal')">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="admin-modal__body">
+
+            <!-- ── Hero ── -->
+            <div class="rmod-hero">
+                <div class="rmod-hero__av-wrap">
+                    <img class="rmod-hero__av-img"
+                         src="~/Assets/images/profile.jpg"
+                         alt="Jollibee Malaybalay"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                    <div class="rmod-hero__av-fallback" style="display:none;">
+                        <i class="ph ph-storefront"></i>
+                    </div>
+                    <span class="rmod-hero__av-dot rmod-hero__av-dot--active"></span>
+                </div>
+                <div>
+                    <p class="rmod-hero__name">Jollibee Malaybalay</p>
+                    <div class="rmod-hero__meta">
+                        <span class="rmod-hero__id">Merchant-001</span>
+                        <span class="admin-badge admin-badge--active">
+                            <span class="admin-badge-dot"></span>Active
+                        </span>
+                    </div>
+                </div>
+                <div class="rmod-hero__btns">
+                    <button class="admin-modal-btn admin-modal-btn--ghost">
+                        <i class="ph ph-camera"></i> Change Photo
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── Business Information ── -->
+            <p class="emod-section-title">
+                <i class="ph ph-storefront"></i> Business Information
+            </p>
+            <div class="emod-grid">
+                <div class="emod-field">
+                    <span class="emod-field__label">Business Name</span>
+                    <input class="admin-modal-input" type="text" value="Jollibee Malaybalay" placeholder="Business name" />
+                </div>
+                <div class="emod-field">
+                    <span class="emod-field__label">Business Type / Category</span>
+                    <input class="admin-modal-input" type="text" value="Restaurant — Fast Food" placeholder="e.g. Restaurant, Cafe" />
+                </div>
+                <div class="emod-field emod-field--full">
+                    <span class="emod-field__label">Business Address</span>
+                    <input class="admin-modal-input" type="text" value="CM Recto Ave., Malaybalay City, Bukidnon" placeholder="Full business address" />
+                </div>
+            </div>
+
+            <!-- ── Owner / Contact ── -->
+            <p class="emod-section-title">
+                <i class="ph ph-user"></i> Owner &amp; Contact
+            </p>
+            <div class="emod-grid">
+                <div class="emod-field">
+                    <span class="emod-field__label">Owner Name</span>
+                    <input class="admin-modal-input" type="text" value="Juan Santos" placeholder="Owner full name" />
+                </div>
+                <div class="emod-field">
+                    <span class="emod-field__label">Phone</span>
+                    <input class="admin-modal-input" type="text" value="088-212-3456" placeholder="Contact number" />
+                </div>
+                <div class="emod-field emod-field--full">
+                    <span class="emod-field__label">Email</span>
+                    <input class="admin-modal-input" type="email" value="jollibee.mby@email.com" placeholder="Email address" />
+                </div>
+            </div>
+
+            <!-- ── Registration ── -->
+            <p class="emod-section-title">
+                <i class="ph ph-certificate"></i> Registration
+            </p>
+            <div class="emod-grid">
+                <div class="emod-field">
+                    <span class="emod-field__label">DTI / BIR Number</span>
+                    <input class="admin-modal-input" type="text" value="DTI-2024-00123" placeholder="Registration number" />
+                </div>
+                <div class="emod-field">
+                    <span class="emod-field__label">Permit Expiry</span>
+                    <input class="admin-modal-input" type="date" value="2026-12-31" />
+                </div>
+            </div>
+
+            <!-- ── Settlement ── -->
+            <p class="emod-section-title">
+                <i class="ph ph-bank"></i> Settlement Account
+            </p>
+            <div class="emod-grid">
+                <div class="emod-field">
+                    <span class="emod-field__label">Payment Method</span>
+                    <input class="admin-modal-input" type="text" value="BDO" placeholder="e.g. GCash, BDO, BPI" />
+                </div>
+                <div class="emod-field">
+                    <span class="emod-field__label">Account Number</span>
+                    <input class="admin-modal-input" type="text" value="****4821" placeholder="Account number" />
+                </div>
+            </div>
+
+            <!-- ── Footer ── -->
+            <div class="emod-footer">
+                <button class="admin-modal-btn admin-modal-btn--ghost"
+                        onclick="closeModal('merchant-edit-modal')">
+                    Cancel
+                </button>
+                <button class="admin-modal-btn admin-modal-btn--approve">
+                    <i class="ph ph-floppy-disk"></i> Save Changes
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

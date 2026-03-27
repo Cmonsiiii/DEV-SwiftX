@@ -1,7 +1,9 @@
-/* ══════════════════════════════════════
-   COLOR THEMES & BACKGROUNDS UTILITIES
-   ══════════════════════════════════════ */
+/*
+    v1.0.3
+*/
 
+
+/* ── Background utilities ── */
 .__bg-nav {
     background-color: var(--dark-bg-nav);
 }
@@ -14,6 +16,7 @@
     background-color: var(--dark-bg-color);
 }
 
+/* ── Text utilities ── */
 .__text-light {
     color: var(--light-text-color);
 }
@@ -22,16 +25,19 @@
     color: var(--primary-color);
 }
 
+/* ── Border utilities ── */
 .__border-subtle {
     border-color: rgba(255, 255, 255, 0.06);
 }
 
+/* ── Dividers ── */
 .__divider-subtle {
     height: 1px;
     width: 100%;
     background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
 }
 
+/* ── Links ── */
 .__footer-link {
     transition: color 0.2s ease, opacity 0.2s ease;
 }
@@ -41,6 +47,17 @@
     color: var(--primary-color);
 }
 
+/* ── Glow backgrounds ── */
+.__glow-bg {
+    background: radial-gradient(circle, rgba(211, 69, 2, 1), transparent 70%);
+}
+
+.__glow-bg-intense {
+    background: radial-gradient(circle, rgba(211, 69, 2, 1), transparent 60%);
+    opacity: 0.25;
+}
+
+/* ── Hero glow opacity helpers ── */
 .__hero-glow-lg {
     opacity: 0.08;
 }
@@ -53,17 +70,8 @@
     opacity: 0.03;
 }
 
-.__glow-bg {
-    background: radial-gradient(circle, rgba(211, 69, 2, 1), transparent 70%);
-}
-
-.__glow-bg-intense {
-    background: radial-gradient(circle, rgba(211, 69, 2, 1), transparent 60%);
-    opacity: 0.25;
-}
-
+/* ── Inline icon colour ── */
 .__check-list-icon {
     color: var(--primary-color);
     flex-shrink: 0;
 }
-

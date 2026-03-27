@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewData["Title"] = "Sign Up";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
@@ -9,26 +6,33 @@
 @model SwiftX.Models.RiderModel
 
 <section class="px-4 py-10 md:py-16 bg-[var(--dark-bg-color)] text-[var(--light-text-color)]">
-    <Form method="post" asp-action="SignUpRider" asp-controller="SignUp" enctype="multipart/form-data">
+    <form method="post"
+          asp-action="SignUpRider"
+          asp-controller="SignUp"
+          enctype="multipart/form-data"
+          id="riderSignupForm"
+          novalidate>
+
         @Html.AntiForgeryToken()
+
         <div class="max-w-xl mx-auto">
 
-            <!-- Header -->
+            <!-- ── Header ── -->
             <div class="text-center mb-8 md:mb-10">
-                <h1 class="__h1 text-[var(--primary-color)]">Sign Up</h1>
+                <h1 class="__h1 text-[var(--primary-color)]">Rider Sign Up</h1>
                 <p class="__body mt-2 opacity-60">Start your application and begin earning with SwiftX.</p>
             </div>
 
-            <!-- Step Indicator -->
-            <div class="flex items-center justify-center mb-10 md:mb-12 px-2" id="step-indicator">
+            <!-- ── Step Indicator ── -->   
+            <div class="flex items-center justify-center mb-10 px-2">
                 <div class="flex flex-col items-center gap-1.5">
-                    <div class="step-circle active" data-step-circle="1">1</div>
-                    <span class="step-label active" data-step-label="1">Basic Info</span>
+                    <div class="step-circle" data-step-circle="1">1</div>
+                    <span class="step-label" data-step-label="1">Basic Info</span>
                 </div>
                 <div class="step-connector" data-connector="1"></div>
                 <div class="flex flex-col items-center gap-1.5">
                     <div class="step-circle" data-step-circle="2">2</div>
-                    <span class="step-label" data-step-label="2">Rider Documents</span>
+                    <span class="step-label" data-step-label="2">Documents</span>
                 </div>
                 <div class="step-connector" data-connector="2"></div>
                 <div class="flex flex-col items-center gap-1.5">
@@ -37,284 +41,318 @@
                 </div>
             </div>
 
-            <!-- Form Cards -->
-            <div class="space-y-4" id="form-cards">
+            <!-- ── All Sections ── -->
+            <div class="space-y-5">
 
-                <!-- STEP 1: Basic Info -->
-                <div class="form-card __signup-card" data-card="1">
-                    <div class="form-card__header flex items-center gap-3 mb-1">
-                        <div class="step-circle step-circle--card active" data-card-circle="1">1</div>
-                        <h2 class="__h4">Basic info</h2>
+                <!-- ════════════════════════════
+                     SECTION 1 · Basic Info
+                ════════════════════════════ -->
+                <div class="__signup-card" id="section-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="step-circle step-circle--card" id="card-circle-1">1</div>
+                        <h2 class="__h4">Basic Info</h2>
                     </div>
-                    <div class="form-card__body">
-                        <p class="__small opacity-80 mt-1 mb-1">Please enter your legal personal details.</p>
-                        <p class="__micro text-[var(--primary-color)] mb-5">*All fields required unless noted.</p>
 
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*First name</label>
-                            <div class="input-icon-wrap">
-                                <input type="text" class="signup-input" data-step1 placeholder="First name" asp-for="User.FirstName" />
-                                <span class="input-icon"><i class="ph ph-user"></i></span>
-                            </div>
-                            <span class="field-error" data-error="firstname"></span>
-                        </div>
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5 opacity-70">Middle name (as applicable)</label>
-                            <div class="input-icon-wrap">
-                                <input type="text" class="signup-input" placeholder="Middle name" asp-for="User.MiddleName" />
-                                <span class="input-icon"><i class="ph ph-user"></i></span>
-                            </div>
-                            <span class="field-error" data-error="middlename"></span>
-                        </div>
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*Last name</label>
-                            <div class="input-icon-wrap">
-                                <input type="text" class="signup-input" data-step1 placeholder="Last name" asp-for="User.LastName" />
-                                <span class="input-icon"><i class="ph ph-user"></i></span>
-                            </div>
-                            <span class="field-error" data-error="lastname"></span>
-                        </div>
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*Address</label>
-                            <div class="input-icon-wrap">
-                                <input type="text" class="signup-input" data-step1 placeholder="Complete address" asp-for="User.Address" />
-                                <span class="input-icon"><i class="ph ph-map-pin"></i></span>
-                            </div>
-                            <span class="field-error" data-error="address"></span>
-                        </div>
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*Contact No.</label>
-                            <div class="input-icon-wrap">
-                                <input type="tel" class="signup-input" data-step1 placeholder="09XX XXX XXXX" asp-for="User.Contact" />
-                                <span class="input-icon"><i class="ph ph-phone"></i></span>
-                            </div>
-                            <span class="field-error" data-error="contact"></span>
-                        </div>
+                    <p class="__small opacity-80 mb-1">Please enter your legal personal details.</p>
+                    <p class="__micro text-[var(--primary-color)] mb-5">*All fields required unless noted.</p>
 
-                        <!-- Date of Birth -->
-                        <div class="mb-6">
-                            <label class="__label block mb-1.5">*Date of Birth</label>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div>
-                                    <span class="__small block text-xs opacity-60 mb-1">Month</span>
-                                    <select class="signup-select" data-step1 id="dob-month" asp-for="User.BirthMonth">
-                                        <option value="" disabled selected></option>
-                                        <option value="1">January</option>
-                                        <option value="2">February</option>
-                                        <option value="3">March</option>
-                                        <option value="4">April</option>
-                                        <option value="5">May</option>
-                                        <option value="6">June</option>
-                                        <option value="7">July</option>
-                                        <option value="8">August</option>
-                                        <option value="9">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
-                                    </select>
-                                    <span class="field-error" data-error="dob-month"></span>
-                                </div>
-                                <div>
-                                    <span class="__small block text-xs opacity-60 mb-1">Date</span>
-                                    <select class="signup-select" data-step1 id="dob-date" asp-for="User.BirthDate">
-                                        <option value="" disabled selected></option>
-                                    </select>
-                                    <span class="field-error" data-error="dob-date"></span>
-                                </div>
-                                <div>
-                                    <span class="__small block text-xs opacity-60 mb-1">Year</span>
-                                    <select class="signup-select" data-step1 id="dob-year" asp-for="User.BirthYear">
-                                        <option value="" disabled selected></option>
-                                    </select>
-                                    <span class="field-error" data-error="dob-year"></span>
-                                </div>
-                            </div>
-                            <span class="field-error" data-error="dob"></span>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*First Name</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" id="inp-firstname"
+                                   asp-for="User.FirstName" placeholder="First name" autocomplete="given-name" />
+                            <span class="input-icon"><i class="ph ph-user"></i></span>
                         </div>
-
-                        <button type="button" class="btn-next" id="btn-step1" disabled>Next</button>
+                        <span class="field-error" id="err-firstname"></span>
                     </div>
-                </div>
 
-                <!-- STEP 2: Requirements & Documents -->
-                <div class="form-card collapsed __signup-card" data-card="2">
-                    <div class="form-card__header flex items-center gap-3 mb-1">
-                        <div class="step-circle step-circle--card" data-card-circle="2">2</div>
-                        <h2 class="__h4">Requirements & Documents</h2>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5 opacity-70">Middle Name <span class="__micro opacity-60">(optional)</span></label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" id="inp-middlename"
+                                   asp-for="User.MiddleName" placeholder="Middle name" autocomplete="additional-name" />
+                            <span class="input-icon"><i class="ph ph-user"></i></span>
+                        </div>
                     </div>
-                    <div class="form-card__body">
-                        <p class="__small opacity-80 mt-1 mb-1">Upload clear, readable copies of your documents.</p>
-                        <p class="__micro text-[var(--primary-color)] mb-5">*All fields required. Accepted formats: JPG, PNG, PDF (max 5 MB each).</p>
 
-                        <!-- Document Uploads -->
-                        <div class="upload-group">
-                            <div class="upload-card">
-                                <div class="upload-card__icon"><i class="ph ph-identification-card"></i></div>
-                                <div class="upload-card__info">
-                                    <label class="__label">*Professional Driver's License</label>
-                                    <p class="upload-card__hint">Front side, all details visible</p>
-                                </div>
-                                <div class="file-upload">
-                                    <input type="file" accept=".jpg,.jpeg,.png,.pdf" asp-for="License" data-step2 />
-                                    <div class="file-upload__text">
-                                        <i class="ph ph-upload-simple"></i>
-                                        <span class="__small">Choose file</span>
-                                    </div>
-                                </div>
-                                <span class="field-error" data-error="license"></span>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Last Name</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" id="inp-lastname"
+                                   asp-for="User.LastName" placeholder="Last name" autocomplete="family-name" />
+                            <span class="input-icon"><i class="ph ph-user"></i></span>
+                        </div>
+                        <span class="field-error" id="err-lastname"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Address</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" id="inp-address"
+                                   asp-for="User.Address" placeholder="Complete address" autocomplete="street-address" />
+                            <span class="input-icon"><i class="ph ph-map-pin"></i></span>
+                        </div>
+                        <span class="field-error" id="err-address"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Contact No.</label>
+                        <div class="input-icon-wrap">
+                            <input type="tel" class="signup-input" id="inp-contact"
+                                   asp-for="User.Contact" placeholder="09XX XXX XXXX" autocomplete="tel" />
+                            <span class="input-icon"><i class="ph ph-phone"></i></span>
+                        </div>
+                        <span class="field-error" id="err-contact"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="__label block mb-1.5">*Date of Birth</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <span class="block text-xs opacity-60 mb-1">Month</span>
+                                <select class="signup-select" id="inp-dob-month" asp-for="User.BirthMonth">
+                                    <option value="" disabled selected>—</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
                             </div>
-
-                            <div class="upload-card">
-                                <div class="upload-card__icon"><i class="ph ph-identification-badge"></i></div>
-                                <div class="upload-card__info">
-                                    <label class="__label">*Secondary Government ID</label>
-                                    <p class="upload-card__hint">Passport, UMID, or National ID</p>
-                                </div>
-                                <div class="file-upload">
-                                    <input type="file" accept=".jpg,.jpeg,.png,.pdf" asp-for="ID" data-step2 />
-                                    <div class="file-upload__text">
-                                        <i class="ph ph-upload-simple"></i>
-                                        <span class="__small">Choose file</span>
-                                    </div>
-                                </div>
-                                <span class="field-error" data-error="govt_id"></span>
+                            <div>
+                                <span class="block text-xs opacity-60 mb-1">Day</span>
+                                <select class="signup-select" id="inp-dob-date" asp-for="User.BirthDate">
+                                    <option value="" disabled selected>—</option>
+                                </select>
                             </div>
-
-                            <div class="upload-card">
-                                <div class="upload-card__icon"><i class="ph ph-file-text"></i></div>
-                                <div class="upload-card__info">
-                                    <label class="__label">*OR/CR</label>
-                                    <p class="upload-card__hint">Official Receipt & Certificate of Registration</p>
-                                </div>
-                                <div class="file-upload">
-                                    <input type="file" accept=".jpg,.jpeg,.png,.pdf" asp-for="ORCR" data-step2 />
-                                    <div class="file-upload__text">
-                                        <i class="ph ph-upload-simple"></i>
-                                        <span class="__small">Choose file</span>
-                                    </div>
-                                </div>
-                                <span class="field-error" data-error="or_cr"></span>
-                            </div>
-
-                            <div class="upload-card">
-                                <div class="upload-card__icon"><i class="ph ph-handshake"></i></div>
-                                <div class="upload-card__info">
-                                    <label class="__label">*Service Agreement / Contract</label>
-                                    <p class="upload-card__hint">Signed copy of the rider agreement</p>
-                                </div>
-                                <div class="file-upload">
-                                    <input type="file" accept=".jpg,.jpeg,.png,.pdf" data-step2 asp-for="Agreement" />
-                                    <div class="file-upload__text">
-                                        <i class="ph ph-upload-simple"></i>
-                                        <span class="__small">Choose file</span>
-                                    </div>
-                                </div>
-                                <span class="field-error" data-error="contract"></span>
+                            <div>
+                                <span class="block text-xs opacity-60 mb-1">Year</span>
+                                <select class="signup-select" id="inp-dob-year" asp-for="User.BirthYear">
+                                    <option value="" disabled selected>—</option>
+                                </select>
                             </div>
                         </div>
-
-                        <!-- Vehicle Photos Section -->
-                        <div class="upload-divider">
-                            <span>Vehicle Photos</span>
-                        </div>
-                        <p class="__micro opacity-50 mb-4" style="margin-top:-4px;">Take clear photos of your vehicle — front and side views.</p>
-
-                        <div class="grid grid-cols-2 gap-3 mb-5">
-                            <div class="vehicle-upload">
-                                <div class="file-upload">
-                                    <input type="file" accept=".jpg,.jpeg,.png" data-step2 asp-for="Front_Vehicle"/>
-                                    <div class="file-upload__text">
-                                        <i class="ph ph-camera"></i>
-                                        <span class="__small">Front View</span>
-                                    </div>
-                                </div>
-                                <span class="field-error" data-error="vehicle_front"></span>
-                            </div>
-                            <div class="vehicle-upload">
-                                <div class="file-upload">
-                                    <input type="file" accept=".jpg,.jpeg,.png" data-step2 asp-for="Side_Vehicle">
-                                    <div class="file-upload__text">
-                                        <i class="ph ph-camera"></i>
-                                        <span class="__small">Side View</span>
-                                    </div>
-                                </div>
-                                <span class="field-error" data-error="vehicle_side"></span>
-                            </div>
-                        </div>
-
-                        <!-- GCash -->
-                        <div class="upload-divider">
-                            <span>Payment Info</span>
-                        </div>
-                        <div class="mb-5">
-                            <label class="__label block mb-1.5">*GCash Number</label>
-                            <div class="input-icon-wrap">
-                                <input type="tel" class="signup-input" data-step2 placeholder="09XX XXX XXXX" asp-for="GCContact" />
-                                <span class="input-icon"><i class="ph ph-wallet"></i></span>
-                            </div>
-                            <span class="field-error" data-error="gcash_number"></span>
-                        </div>
-
-                        <button type="button" class="btn-next" id="btn-step2" disabled>Next</button>
+                        <span class="field-error" id="err-dob"></span>
                     </div>
                 </div>
 
-                <!-- STEP 3: Account Setup -->
-                <div class="form-card collapsed __signup-card" data-card="3">
-                    <div class="form-card__header flex items-center gap-3 mb-1">
-                        <div class="step-circle step-circle--card" data-card-circle="3">3</div>
+
+                <!-- ════════════════════════════
+                     SECTION 2 · Documents
+                ════════════════════════════ -->
+                <div class="__signup-card" id="section-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="step-circle step-circle--card" id="card-circle-2">2</div>
+                        <h2 class="__h4">Requirements &amp; Documents</h2>
+                    </div>
+
+                    <p class="__small opacity-80 mb-1">Upload clear, readable copies of your documents.</p>
+                    <p class="__micro text-[var(--primary-color)] mb-5">*All fields required. JPG, PNG, PDF — max 10 MB each.</p>
+
+                    <div class="upload-group">
+
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-identification-card"></i></div>
+                            <div class="upload-card__info">
+                                <span class="__label block">*Professional Driver's License</span>
+                                <p class="upload-card__hint">Front side, all details visible</p>
+                            </div>
+                            <div class="su-file-upload" id="fu-license">
+                                <input type="file" id="inp-license" asp-for="License"
+                                       accept=".jpg,.jpeg,.png,.pdf" class="su-file-input" />
+                                <div class="su-file-label" aria-hidden="true">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span>Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error w-full" id="err-license"></span>
+                        </div>
+
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-identification-badge"></i></div>
+                            <div class="upload-card__info">
+                                <span class="__label block">*Secondary Government ID</span>
+                                <p class="upload-card__hint">Passport, UMID, or National ID</p>
+                            </div>
+                            <div class="su-file-upload" id="fu-id">
+                                <input type="file" id="inp-id" asp-for="ID"
+                                       accept=".jpg,.jpeg,.png,.pdf" class="su-file-input" />
+                                <div class="su-file-label" aria-hidden="true">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span>Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error w-full" id="err-id"></span>
+                        </div>
+
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-file-text"></i></div>
+                            <div class="upload-card__info">
+                                <span class="__label block">*OR/CR</span>
+                                <p class="upload-card__hint">Official Receipt &amp; Certificate of Registration</p>
+                            </div>
+                            <div class="su-file-upload" id="fu-orcr">
+                                <input type="file" id="inp-orcr" asp-for="ORCR"
+                                       accept=".jpg,.jpeg,.png,.pdf" class="su-file-input" />
+                                <div class="su-file-label" aria-hidden="true">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span>Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error w-full" id="err-orcr"></span>
+                        </div>
+
+                        <div class="upload-card">
+                            <div class="upload-card__icon"><i class="ph ph-handshake"></i></div>
+                            <div class="upload-card__info">
+                                <span class="__label block">*Service Agreement / Contract</span>
+                                <p class="upload-card__hint">Signed copy of the rider agreement</p>
+                            </div>
+                            <div class="su-file-upload" id="fu-agreement">
+                                <input type="file" id="inp-agreement" asp-for="Agreement"
+                                       accept=".jpg,.jpeg,.png,.pdf" class="su-file-input" />
+                                <div class="su-file-label" aria-hidden="true">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span>Choose file</span>
+                                </div>
+                            </div>
+                            <span class="field-error w-full" id="err-agreement"></span>
+                        </div>
+
+                    </div><!-- /upload-group -->
+                    <!-- Vehicle Photos -->
+                    <div class="upload-divider"><span>Vehicle Photos</span></div>
+                    <p class="__micro opacity-50 mb-4">Clear photos of your vehicle — front and side views.</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-5">
+                        <div>
+                            <div class="su-file-upload su-file-upload--photo" id="fu-front">
+                                <input type="file" id="inp-front" asp-for="Front_Vehicle"
+                                       accept=".jpg,.jpeg,.png" class="su-file-input" />
+                                <div class="su-file-label" aria-hidden="true">
+                                    <i class="ph ph-camera"></i>
+                                    <span>Front View</span>
+                                </div>
+                            </div>
+                            <span class="field-error mt-1" id="err-front"></span>
+                        </div>
+                        <div>
+                            <div class="su-file-upload su-file-upload--photo" id="fu-side">
+                                <input type="file" id="inp-side" asp-for="Side_Vehicle"
+                                       accept=".jpg,.jpeg,.png" class="su-file-input" />
+                                <div class="su-file-label" aria-hidden="true">
+                                    <i class="ph ph-camera"></i>
+                                    <span>Side View</span>
+                                </div>
+                            </div>
+                            <span class="field-error mt-1" id="err-side"></span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Info -->
+                    <div class="upload-divider"><span>Payment Info</span></div>
+                    <div class="mb-2">
+                        <label class="__label block mb-1.5">*GCash Number</label>
+                        <div class="input-icon-wrap">
+                            <input type="tel" class="signup-input" id="inp-gcash"
+                                   asp-for="GCContact" placeholder="09XX XXX XXXX" />
+                            <span class="input-icon"><i class="ph ph-wallet"></i></span>
+                        </div>
+                        <span class="field-error" id="err-gcash"></span>
+                    </div>
+                </div>
+
+
+                <!-- ════════════════════════════
+                     SECTION 3 · Account Setup
+                ════════════════════════════ -->
+                <div class="__signup-card" id="section-3">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="step-circle step-circle--card" id="card-circle-3">3</div>
                         <h2 class="__h4">Account Setup</h2>
                     </div>
-                    <div class="form-card__body">
-                        <p class="__small opacity-80 mt-1 mb-1">Create your login credentials.</p>
-                        <p class="__micro text-[var(--primary-color)] mb-5">*All fields required.</p>
 
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*Username</label>
-                            <div class="input-icon-wrap">
-                                <input type="text" class="signup-input" data-step3 placeholder="Username" asp-for="User.Username" />
-                                <span class="input-icon"><i class="ph ph-at"></i></span>
-                            </div>
-                            <span class="field-error" data-error="username"></span>
-                        </div>
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*Email Address</label>
-                            <div class="input-icon-wrap">
-                                <input type="email" class="signup-input" data-step3 placeholder="Email Address" asp-for="User.Email" />
-                                <span class="input-icon"><i class="ph ph-envelope-simple"></i></span>
-                            </div>
-                            <span class="field-error" data-error="email"></span>
-                        </div>
-                        <div class="mb-4">
-                            <label class="__label block mb-1.5">*Password</label>
-                            <div class="password-wrapper input-icon-wrap">
-                                <input type="password" class="signup-input" data-step3 data-pw placeholder="Password" asp-for="User.Password" />
-                                <span class="input-icon"><i class="ph ph-lock-simple"></i></span>
-                                <button type="button" class="password-toggle" data-toggle-pw>
-                                    <svg class="w-5 h-5 eye-open" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                                    <svg class="w-5 h-5 eye-closed hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18" /></svg>
-                                </button>
-                            </div>
-                            <span class="field-error" data-error="password"></span>
-                        </div>
-                        <div class="mb-6">
-                            <label class="__label block mb-1.5">*Confirm Password</label>
-                            <div class="password-wrapper input-icon-wrap">
-                                <input type="password" class="signup-input" data-step3 data-pw placeholder="Confirm Password" />
-                                <span class="input-icon"><i class="ph ph-lock-simple"></i></span>
-                                <button type="button" class="password-toggle" data-toggle-pw>
-                                    <svg class="w-5 h-5 eye-open" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                                    <svg class="w-5 h-5 eye-closed hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18" /></svg>
-                                </button>
-                            </div>
-                            <span class="field-error" data-error="confirm-password"></span>
-                        </div>
+                    <p class="__small opacity-80 mb-1">Create your login credentials.</p>
+                    <p class="__micro text-[var(--primary-color)] mb-5">*All fields required.</p>
 
-                        <button type="submit" class="btn-next" id="btn-step3" disabled>Submit</button>
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Username</label>
+                        <div class="input-icon-wrap">
+                            <input type="text" class="signup-input" id="inp-username"
+                                   asp-for="User.Username" placeholder="Username" autocomplete="username" />
+                            <span class="input-icon"><i class="ph ph-at"></i></span>
+                        </div>
+                        <span class="field-error" id="err-username"></span>
                     </div>
+
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Email Address</label>
+                        <div class="input-icon-wrap">
+                            <input type="email" class="signup-input" id="inp-email"
+                                   asp-for="User.Email" placeholder="Email address" autocomplete="email" />
+                            <span class="input-icon"><i class="ph ph-envelope-simple"></i></span>
+                        </div>
+                        <span class="field-error" id="err-email"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="__label block mb-1.5">*Password</label>
+                        <div class="password-wrapper input-icon-wrap">
+                            <input type="password" class="signup-input" id="inp-password"
+                                   asp-for="User.Password" placeholder="Password" autocomplete="new-password" />
+                            <span class="input-icon"><i class="ph ph-lock-simple"></i></span>
+                            <button type="button" class="password-toggle" data-toggle-pw>
+                                <svg class="w-5 h-5 eye-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <svg class="w-5 h-5 eye-closed hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="field-error" id="err-password"></span>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="__label block mb-1.5">*Confirm Password</label>
+                        <div class="password-wrapper input-icon-wrap">
+                            <input type="password" class="signup-input" id="inp-confirm"
+                                   placeholder="Confirm password" autocomplete="new-password" />
+                            <span class="input-icon"><i class="ph ph-lock-simple"></i></span>
+                            <button type="button" class="password-toggle" data-toggle-pw>
+                                <svg class="w-5 h-5 eye-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <svg class="w-5 h-5 eye-closed hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="field-error" id="err-confirm"></span>
+                    </div>
+
+                    <button type="submit" class="btn-next" id="btn-submit">
+                        Submit Application
+                    </button>
+                    <p class="__micro text-center opacity-40 mt-4">
+                        By submitting, you agree to SwiftX's Terms of Service and Privacy Policy.
+                    </p>
                 </div>
 
-            </div>
-        </div>
-    </Form>
+            </div><!-- /space-y-5 -->
+        </div><!-- /max-w-xl -->
+    </form>
 </section>
+
+@section PageScripts {
+    <script src="~/js/rider_signup.js"></script>
+}

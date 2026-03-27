@@ -1,5 +1,5 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    SIGN UP PAGE LAYOUT
 *@
 @{
 }
@@ -32,8 +32,11 @@
     </main>
 
     <footer id="contact" class="px-6 py-10 md:py-12 bg-[var(--dark-bg-hero)] text-[var(--light-text-color)]">
-        <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-80">
+        <div class="mt-10 flex flex-col md:flex-row items-center justify-evenly gap-4 text-sm opacity-80">
             <span class="text-[var(--primary-color)]">2026 © SwiftX All Rights Reserved</span>
+            <a asp-area="" asp-controller="Error" asp-action="Error4xx">4xx Error page</a>
+            <a asp-area="" asp-controller="Error" asp-action="Error5xx">5xx Error page</a>
+            <a asp-area="" asp-controller="Error" asp-action="Maintenance">Maintenance page</a>
         </div>
     </footer>
 
@@ -41,8 +44,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/multistep-form.js"></script>
-    <script src="~/js/signup.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("PageScripts", required: false)
 </body>
 </html>

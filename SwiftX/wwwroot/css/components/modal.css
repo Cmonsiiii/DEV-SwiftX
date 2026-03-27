@@ -1,0 +1,1623 @@
+﻿/*
+    v1.0.3
+
+    Modal system: overlay, shell, shared
+    inner parts, and all page-specific
+    modal styles (rider, order, application,
+    payout, doc-preview)
+*/
+
+
+/* ════════════════════════════════
+   OVERLAY & ANIMATION
+   ════════════════════════════════ */
+.admin-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.admin-modal-overlay--nested {
+    z-index: 200;
+}
+
+.admin-modal-overlay.open {
+    display: flex;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ════════════════════════════════
+   MODAL SHELL
+   ════════════════════════════════ */
+.admin-modal {
+    background: var(--dark-bg-hero);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    animation: modalSlideUp 0.25s ease;
+}
+
+.admin-modal--lg {
+    max-width: 1100px;
+}
+
+.admin-modal--md {
+    max-width: 680px;
+}
+
+.admin-modal--sm {
+    max-width: 480px;
+}
+
+/* ── Header ── */
+.admin-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-modal__title {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .admin-modal__title i {
+        font-size: 20px;
+        color: var(--primary-color);
+    }
+
+.admin-modal__close {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+}
+
+    .admin-modal__close:hover {
+        color: var(--light-text-color);
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+/* ── Body ── */
+.admin-modal__body {
+    padding: 24px;
+}
+
+/* ── Scrollable inner area (order detail hero/footer bleed) ── */
+.admin-modal__scroll {
+    padding: 24px;
+}
+
+/* ════════════════════════════════
+   SHARED INNER COMPONENTS
+   ════════════════════════════════ */
+
+/* Section card */
+.admin-modal-section {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-modal-section__title {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.admin-modal-section__label {
+    font-size: 10px;
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-modal-section__subtitle {
+    font-size: 13px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 16px;
+    margin-bottom: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Info label (standalone) */
+.admin-modal-info-label {
+    font-size: var(--fs-micro);
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: var(--fw-medium);
+}
+
+/* Stacked info field */
+.admin-modal-info-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-modal-info-field {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.admin-modal-info-field__label {
+    font-size: 11px;
+    font-weight: var(--fw-medium);
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-modal-info-field__value {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Section divider with label */
+.admin-modal-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 14px;
+}
+
+    .admin-modal-divider::before,
+    .admin-modal-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .admin-modal-divider span {
+        font-size: 11px;
+        font-weight: var(--fw-semibold);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        white-space: nowrap;
+    }
+
+/* Table wrapper */
+.admin-modal-table-wrap {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    overflow-x: auto;
+}
+
+/* Document list */
+.admin-modal-doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.admin-modal-doc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.admin-modal-doc--redesigned {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.admin-modal-doc__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.admin-modal-doc__name {
+    font-size: 13px;
+    font-weight: var(--fw-medium);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.admin-modal-doc__preview-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+    .admin-modal-doc__preview-btn:hover {
+        color: var(--primary-color);
+        border-color: var(--primary-border-subtle);
+        background: var(--primary-bg-faint);
+    }
+
+/* Toggle group (approve / pending / reject per doc) */
+.admin-modal-toggle-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.admin-modal-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: var(--fs-micro);
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    border: 1px solid;
+    transition: all 0.2s ease;
+}
+
+.admin-modal-toggle-btn--approve {
+    color: var(--success-color);
+    border-color: rgba(34, 197, 94, 0.25);
+    background: transparent;
+}
+
+    .admin-modal-toggle-btn--approve:hover {
+        background: var(--success-bg-subtle);
+    }
+
+    .admin-modal-toggle-btn--approve.active {
+        background: var(--success-color);
+        color: #fff;
+        border-color: var(--success-color);
+    }
+
+.admin-modal-toggle-btn--neutral {
+    color: var(--warning-color);
+    border-color: rgba(250, 204, 21, 0.25);
+    background: transparent;
+}
+
+    .admin-modal-toggle-btn--neutral:hover {
+        background: var(--warning-bg-subtle);
+    }
+
+    .admin-modal-toggle-btn--neutral.active {
+        background: var(--warning-color-dark);
+        color: #fff;
+        border-color: var(--warning-color-dark);
+    }
+
+.admin-modal-toggle-btn--reject {
+    color: var(--danger-color);
+    border-color: rgba(239, 68, 68, 0.25);
+    background: transparent;
+}
+
+    .admin-modal-toggle-btn--reject:hover {
+        background: var(--danger-bg-subtle);
+    }
+
+    .admin-modal-toggle-btn--reject.active {
+        background: var(--danger-color);
+        color: #fff;
+        border-color: var(--danger-color);
+    }
+
+/* Stats row (payout modal) */
+.admin-modal-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.admin-modal-stat-card {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.admin-modal-stat-card__value {
+    font-size: 22px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.admin-modal-stat-card__label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: var(--fw-medium);
+}
+
+/* Warning banner */
+.admin-modal-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    border-radius: 10px;
+    background: var(--danger-bg-subtle);
+    border: 1px solid var(--danger-border-subtle);
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--lh-body);
+}
+
+    .admin-modal-warning i {
+        color: var(--danger-color);
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .admin-modal-warning strong {
+        color: var(--danger-color);
+    }
+
+/* Textarea */
+.admin-modal-textarea {
+    width: 100%;
+    min-height: 80px;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-main);
+    font-size: var(--fs-small);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+    .admin-modal-textarea:focus {
+        border-color: var(--primary-border-focus);
+    }
+
+    .admin-modal-textarea::placeholder {
+        color: rgba(255, 255, 255, 0.25);
+    }
+
+.admin-modal-textarea--tall {
+    min-height: 140px;
+}
+
+/* Profile header (centred photo) */
+.admin-modal-profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+    .admin-modal-profile-header .admin-modal-avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+        .admin-modal-profile-header .admin-modal-avatar i {
+            font-size: 32px;
+        }
+
+        .admin-modal-profile-header .admin-modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+.admin-modal-profile-name {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+/* ════════════════════════════════
+   MODAL BUTTONS
+   ════════════════════════════════ */
+.admin-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.admin-modal-btn--primary {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+    .admin-modal-btn--primary:hover {
+        opacity: 0.9;
+    }
+
+.admin-modal-btn--approve {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+    border: 1px solid rgba(34,197,94,0.2);
+}
+
+    .admin-modal-btn--approve:hover {
+        background: var(--success-bg-hover);
+    }
+
+.admin-modal-btn--reject {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-border-subtle);
+}
+
+    .admin-modal-btn--reject:hover {
+        background: var(--danger-bg-hover);
+        border-color: rgba(239,68,68,0.35);
+    }
+
+.admin-modal-btn--danger {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-border-subtle);
+}
+
+    .admin-modal-btn--danger:hover {
+        background: var(--danger-bg-hover);
+        border-color: rgba(239,68,68,0.35);
+    }
+
+.admin-modal-btn--danger-solid {
+    background: var(--danger-color);
+    color: var(--light-text-color);
+}
+
+    .admin-modal-btn--danger-solid:hover {
+        background: var(--danger-color-dark);
+    }
+
+.admin-modal-btn--danger-outline {
+    background: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-border-subtle);
+}
+
+    .admin-modal-btn--danger-outline:hover {
+        background: var(--danger-bg-subtle);
+    }
+
+.admin-modal-btn--success {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+    border: 1px solid rgba(34,197,94,0.2);
+}
+
+    .admin-modal-btn--success:hover {
+        background: var(--success-bg-hover);
+        border-color: rgba(34,197,94,0.35);
+    }
+
+.admin-modal-btn--warning {
+    background: var(--warning-bg-subtle);
+    color: var(--warning-color);
+    border: 1px solid rgba(250,204,21,0.2);
+}
+
+    .admin-modal-btn--warning:hover {
+        background: var(--warning-bg-hover);
+        border-color: rgba(250,204,21,0.35);
+    }
+
+.admin-modal-btn--ghost {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    .admin-modal-btn--ghost:hover {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+/* ════════════════════════════════
+   FOOTER ACTIONS
+   ════════════════════════════════ */
+.admin-modal-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+.admin-modal-footer-actions--stacked {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+    .admin-modal-footer-actions--stacked .admin-modal-btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+.admin-modal-section--flex {
+    display: flex;
+    flex-direction: column;
+}
+
+    .admin-modal-section--flex .admin-modal-footer-actions {
+        margin-top: auto;
+    }
+
+.admin-modal-action-status {
+    margin-bottom: 16px;
+}
+
+/* ════════════════════════════════
+   RIDER DETAIL MODAL  (rmod-*)
+   ════════════════════════════════ */
+
+/* Hero strip */
+.rmod-hero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.rmod-hero__av-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.rmod-hero__av-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--primary-border-faint);
+    display: block;
+}
+
+.rmod-hero__av-fallback {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    background: var(--primary-bg-subtle);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-border-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.rmod-hero__av-dot {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2.5px solid var(--dark-bg-hero);
+}
+
+.rmod-hero__av-dot--active {
+    background: var(--success-color);
+}
+
+.rmod-hero__av-dot--inactive {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.rmod-hero__name {
+    font-size: 17px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.rmod-hero__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.rmod-hero__id {
+    font-size: var(--fs-micro);
+    color: rgba(255, 255, 255, 0.35);
+    font-family: monospace;
+}
+
+.rmod-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: var(--fs-micro);
+    font-weight: var(--fw-medium);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+    .rmod-hero__chip i {
+        font-size: 13px;
+    }
+
+.rmod-hero__btns {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+    .rmod-hero__btns .admin-modal-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+
+/* Tabs */
+.rmod-tabs {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+.rmod-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px 8px 0 0;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.38);
+    transition: all 0.18s;
+    margin-bottom: -1px;
+}
+
+    .rmod-tab:hover {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .rmod-tab.active {
+        color: var(--primary-color);
+        border-bottom-color: var(--primary-color);
+        background: var(--primary-bg-faint);
+    }
+
+/* Panels */
+.rmod-panel {
+    display: none;
+}
+
+    .rmod-panel.active {
+        display: block;
+    }
+
+/* Earnings row (Info tab) */
+.rmod-earnings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rmod-earn {
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rmod-earn__val {
+    font-size: 18px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.rmod-earn__lbl {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* Info 2-col grid (Info tab) */
+.rmod-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.rmod-info-block {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rmod-info-block__lbl {
+    font-size: 10px;
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 4px;
+}
+
+.rmod-info-block__val {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Document rows — read-only status (Documents tab) */
+.rmod-doc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    gap: 12px;
+}
+
+.rmod-doc-row__name {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.rmod-doc-row__sub {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 2px;
+}
+
+.rmod-doc-row__right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.rmod-doc-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    white-space: nowrap;
+}
+
+.rmod-doc-status--ok {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+}
+
+.rmod-doc-status--pending {
+    background: var(--warning-bg-subtle);
+    color: var(--warning-color);
+}
+
+.rmod-doc-status--expired {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+}
+
+/* ════════════════════════════════
+   APPLICATION REVIEW MODAL (appmod-*)
+   ════════════════════════════════ */
+
+/* Hero banner */
+.appmod-hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    margin: -24px -24px 20px;
+    background: var(--dark-bg-hero);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    flex-wrap: wrap;
+}
+
+.appmod-hero__photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.appmod-hero__photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--primary-border-faint);
+    display: block;
+}
+
+.appmod-hero__photo-fallback {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    background: var(--primary-bg-subtle);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-border-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.appmod-hero__dot {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2.5px solid var(--dark-bg-hero);
+    background: var(--warning-color);
+}
+
+.appmod-hero__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.appmod-hero__name {
+    font-size: var(--fs-h4);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.appmod-hero__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.appmod-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: var(--fs-micro);
+    font-weight: var(--fw-medium);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+    .appmod-hero__chip i {
+        font-size: 13px;
+    }
+
+/* Body 2-col grid */
+.appmod-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.appmod-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+}
+
+/* Decision bar */
+.appmod-decision {
+    margin: 20px -24px -24px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.015);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.appmod-decision__textarea-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.appmod-decision__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+    .appmod-decision__actions .admin-modal-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+/* ════════════════════════════════
+   ORDER DETAIL MODAL  (omod-*)
+   ════════════════════════════════ */
+
+/* Hero strip */
+.omod-hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    margin: -24px -24px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+.omod-hero__left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.omod-hero__label {
+    font-size: 10px;
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.omod-hero__id {
+    font-size: var(--fs-h4);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.92);
+    font-family: monospace;
+    line-height: 1;
+}
+
+.omod-hero__chips {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 2-col body */
+.omod-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 24px;
+}
+
+/* Party card */
+.omod-party {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.omod-party__av {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.omod-party__av--customer {
+    background: var(--info-bg-subtle);
+    color: var(--info-color);
+}
+
+.omod-party__av--rider {
+    background: var(--primary-bg-subtle);
+    color: var(--primary-color);
+}
+
+.omod-party__av--merchant {
+    background: var(--purple-bg-subtle);
+    color: var(--purple-color);
+}
+
+.omod-party__name {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 4px;
+}
+
+.omod-party__sub {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 2px;
+    line-height: 1.4;
+}
+
+    .omod-party__sub i {
+        font-size: 12px;
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.25);
+    }
+
+/* Order items */
+.omod-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+    .omod-items::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .omod-items::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+
+.omod-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+
+    .omod-item:hover {
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+.omod-item__qty {
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    color: var(--primary-color);
+    min-width: 22px;
+    font-family: monospace;
+}
+
+.omod-item__name {
+    flex: 1;
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.omod-item__price {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: monospace;
+    text-align: right;
+}
+
+/* Price breakdown */
+.omod-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.omod-breakdown__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.omod-breakdown__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 4px 0;
+}
+
+.omod-breakdown__row--total {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.omod-breakdown__payment {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--fs-small);
+}
+
+.omod-breakdown__payment-label {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: var(--fs-small);
+}
+
+/* Footer action bar */
+.omod-footer {
+    padding: 14px 24px;
+    background: rgba(255, 255, 255, 0.015);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px -24px -24px;
+}
+
+.omod-footer__note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.28);
+    flex: 1;
+    min-width: 160px;
+}
+
+    .omod-footer__note i {
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+.omod-footer__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ════════════════════════════════
+   DOCUMENT PREVIEW MODAL
+   ════════════════════════════════ */
+.admin-doc-preview-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+    .admin-doc-preview-body img {
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .admin-doc-preview-body iframe {
+        width: 100%;
+        height: 70vh;
+        border: none;
+        border-radius: 8px;
+    }
+
+.admin-doc-preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: var(--fs-small);
+}
+
+    .admin-doc-preview-placeholder i {
+        font-size: 48px;
+        opacity: 0.5;
+    }
+
+/* ════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════ */
+
+/* ≥ 900px: 2-col app body + side-by-side decision bar */
+@media (min-width: 900px) {
+    .appmod-body {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .appmod-decision {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+    }
+}
+
+/* ≥ 760px: 2-col order detail body */
+@media (min-width: 760px) {
+    .omod-body {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ≤ 640px: Compact modals */
+@media (max-width: 640px) {
+    .admin-modal-overlay {
+        padding: 12px;
+    }
+
+    .admin-modal__body {
+        padding: 14px;
+    }
+
+    /* Rider Detail — hero */
+    .rmod-hero__btns {
+        width: 100%;
+        margin-left: 0;
+    }
+
+        .rmod-hero__btns .admin-modal-btn {
+            flex: 1;
+            justify-content: center;
+        }
+
+    .rmod-earnings {
+        grid-template-columns: 1fr;
+    }
+
+    .rmod-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Application modal */
+    .appmod-hero {
+        margin: -14px -14px 16px;
+        padding: 16px;
+    }
+
+    .appmod-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+        .appmod-info-grid [style*="grid-column"] {
+            grid-column: span 1 !important;
+        }
+
+    /* Payout stats */
+    .admin-modal-stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Order footer */
+    .omod-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .omod-footer__actions {
+        flex-direction: column;
+    }
+
+        .omod-footer__actions .admin-modal-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+    /* Footer actions */
+    .admin-modal-footer-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+        .admin-modal-footer-actions .admin-modal-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+    .admin-modal-toggle-group {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    /* Edit modal */
+    .emod-grid,
+    .emod-grid--3 {
+        grid-template-columns: 1fr;
+    }
+
+    .emod-field--full {
+        grid-column: span 1;
+    }
+
+    .emod-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+        .emod-footer .admin-modal-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+    .emod-section-title {
+        margin: 14px 0 10px;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   MISSING UTILITY CLASSES
+   (were inline styles in modal partial views)
+   ══════════════════════════════════════════════════════════ */
+
+/* omod-body column wrapper — replaces style="display:flex;flex-direction:column;gap:16px;" */
+.omod-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Discount amount — replaces style="color:var(--success-color);" */
+.omod-breakdown__discount {
+    color: var(--success-color);
+}
+
+/* Payment method row — replaces three inline styles on breakdown row */
+.omod-breakdown__payment {
+    margin-top: 6px;
+}
+
+.omod-breakdown__payment-label {
+    color: rgba(255,255,255,0.35);
+}
+
+.omod-breakdown__payment-value {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255,255,255,0.6);
+}
+
+/* Section title icon — replaces style="color:var(--primary-color);margin-right:6px;" on <i> */
+.admin-modal-section__icon {
+    color: var(--primary-color);
+    margin-right: 6px;
+}
+
+/* Full-width info field — replaces style="grid-column:span 2;" */
+.admin-modal-info-field--full {
+    grid-column: span 2;
+}
+
+/* Optional hint — replaces style="color:rgba(255,255,255,0.2);font-weight:400;" */
+.admin-modal-info-label__hint {
+    color: rgba(255,255,255,0.2);
+    font-weight: 400;
+}
+
+/* App ID chip — replaces style="margin-left:auto;font-family:monospace;font-size:11px;" */
+.appmod-hero__chip--id {
+    margin-left: auto;
+    font-family: var(--font-secondary), monospace;
+    font-size: 11px;
+}
+
+/* Docs hint text — replaces style="font-size:11px;color:rgba(...,0.35);margin-bottom:14px;" */
+.rmod-docs-hint {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+}
+
+/* Rider detail close footer — replaces inline style div wrapping the close button */
+.rmod-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Spaced modal table wrap — replaces style="margin-top:20px;" on payout table */
+.admin-modal-table-wrap--spaced {
+    margin-top: 20px;
+}
+
+/* Also fix the 640px breakpoint: --full fields should collapse to span 1 */
+@media (max-width: 640px) {
+    .admin-modal-info-field--full {
+        grid-column: span 1;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   EDIT PROFILE MODAL — input fields
+   ══════════════════════════════════════════════════════════ */
+.admin-modal-input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-main);
+    font-size: var(--fs-small);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.admin-modal-input:focus {
+    border-color: var(--primary-border-focus);
+}
+
+.admin-modal-input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.admin-modal-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.emod-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.emod-grid--3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.emod-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.emod-field--full {
+    grid-column: span 2;
+}
+
+.emod-field__label {
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.38);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 2px;
+}
+
+.emod-section-title {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    color: rgba(255, 255, 255, 0.5);
+    margin: 20px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.emod-section-title i {
+    color: var(--primary-color);
+}
+
+.emod-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}

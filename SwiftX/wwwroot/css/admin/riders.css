@@ -1,0 +1,458 @@
+﻿/*
+    v1.0.3
+*/
+
+
+/* ─── Rider cell: avatar + name/id ─── */
+.td-rider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.td-rider__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    flex-shrink: 0;
+    background: var(--primary-bg-subtle);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.td-rider__avatar--dim {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.2);
+}
+
+.td-rider__name {
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-small);
+    color: rgba(255,255,255,0.88);
+}
+
+.td-rider__id {
+    font-size: 11px;
+    color: rgba(255,255,255,0.32);
+    margin-top: 2px;
+    font-family: monospace;
+}
+
+/* ─── Plate tag ─── */
+.td-plate {
+    display: inline-flex;
+    padding: 3px 9px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    font-family: monospace;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+}
+
+.td-plate--dim {
+    opacity: 0.38;
+}
+
+/* ─── Orders pill ─── */
+.td-orders {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+}
+
+.td-orders--live {
+    background: var(--info-bg-subtle);
+    color: var(--info-color);
+}
+
+.td-orders--zero {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.28);
+}
+
+/* ─── Actions cell ─── */
+.td-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.admin-action-btn--success:hover {
+    color: var(--success-color);
+    border-color: rgba(34,197,94,0.2);
+    background: var(--success-bg-subtle);
+}
+
+.admin-action-btn--danger-soft:hover {
+    color: var(--danger-color);
+    border-color: var(--danger-border-subtle);
+    background: var(--danger-bg-subtle);
+}
+
+/* ─── Page layout: table + ops sidebar ─── */
+.riders-layout {
+    display: grid;
+    grid-template-columns: 1fr 272px;
+    gap: 20px;
+    align-items: start;
+    min-width: 0;
+}
+
+.riders-layout > * {
+    min-width: 0;
+}
+
+@media (max-width:1100px) {
+    .riders-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── Ops sidebar ─── */
+.ops-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ops-panel {
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--dark-bg-hero);
+    overflow: hidden;
+}
+
+.ops-panel__head {
+    padding: 11px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 10px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255,255,255,0.32);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+}
+
+.ops-panel__body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ops-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.02);
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+    font-family: var(--font-main);
+    transition: border-color 0.2s, background 0.2s;
+}
+
+    .ops-btn:hover {
+        border-color: var(--primary-border-subtle);
+        background: var(--primary-bg-faint);
+    }
+
+.ops-btn__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    flex-shrink: 0;
+    background: var(--primary-bg-subtle);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.ops-btn__label {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    color: rgba(255,255,255,0.85);
+}
+
+.ops-btn__meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 1px;
+}
+
+.ops-btn__arrow {
+    margin-left: auto;
+    font-size: 14px;
+    color: rgba(255,255,255,0.18);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.ops-btn:hover .ops-btn__arrow {
+    color: var(--primary-color);
+    transform: translateX(2px);
+}
+
+.ops-applicant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+    .ops-applicant:hover {
+        background: rgba(255,255,255,0.03);
+    }
+
+.ops-applicant__av {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.ops-applicant__name {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: rgba(255,255,255,0.78);
+}
+
+.ops-applicant__date {
+    font-size: 11px;
+    color: rgba(255,255,255,0.28);
+    margin-top: 1px;
+}
+
+.td-merchant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.td-merchant__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    flex-shrink: 0;
+    background: var(--purple-bg-subtle);
+    color: var(--purple-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.td-merchant__avatar--dim {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.2);
+}
+
+/* Pending state — warning tint */
+.td-merchant__avatar--pending {
+    background: var(--warning-bg-subtle);
+    color: var(--warning-color);
+}
+
+.td-merchant__name {
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-small);
+    color: rgba(255,255,255,0.88);
+}
+
+.td-merchant__id {
+    font-size: 11px;
+    color: rgba(255,255,255,0.32);
+    margin-top: 2px;
+    font-family: monospace;
+}
+
+/* ─── Category tag — mirrors .td-plate ─── */
+.td-category {
+    display: inline-flex;
+    padding: 3px 9px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.03em;
+}
+
+.td-category--dim {
+    opacity: 0.38;
+}
+
+/* ─── Business type cell — mirrors .td-vehicle ─── */
+.td-biztype {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,0.55);
+    font-size: var(--fs-small);
+}
+
+    .td-biztype i {
+        font-size: 15px;
+        color: var(--purple-color);
+        flex-shrink: 0;
+    }
+
+.td-biztype__label {
+    color: rgba(255,255,255,0.65);
+}
+
+/* ─── DTI/BIR registration tag — mirrors .td-license ─── */
+.td-biz {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    font-family: monospace;
+    letter-spacing: 0.03em;
+}
+
+.td-biz--ok {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+    border: 1px solid rgba(34,197,94,0.15);
+}
+
+.td-biz--expired {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-border-subtle);
+}
+
+/* ── Responsive (Riders page) ── */
+@media (max-width: 1024px) {
+    .admin-riders-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-modal-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-modal-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Dim name text for inactive riders/merchants ─────────────────── */
+/* Replaces: style="color:rgba(255,255,255,0.35);" on td-rider__name  */
+.td-rider__name--dim {
+    color: rgba(255,255,255,0.35);
+}
+
+.td-merchant__name--dim {
+    color: rgba(255,255,255,0.35);
+}
+
+/* ── Ops applicant body flex wrapper ─────────────────────────────── */
+/* Replaces: style="flex:1;min-width:0;" inline div                   */
+.ops-applicant__body {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Compact ops-panel body (applicant list panels) ──────────────── */
+/* Replaces: style="padding:8px;" on ops-panel__body                  */
+.ops-panel__body--compact {
+    padding: 8px;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   MISSING CELL CLASSES — used in application views
+   ══════════════════════════════════════════════════════════ */
+
+/* Vehicle cell (RiderApplications) */
+.td-vehicle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-small);
+    color: rgba(255,255,255,0.65);
+}
+
+    .td-vehicle i {
+        font-size: 15px;
+        color: rgba(255,255,255,0.3);
+        flex-shrink: 0;
+    }
+
+.td-vehicle__label {
+    color: rgba(255,255,255,0.65);
+}
+
+/* Dim variant — rejected rows */
+.td-vehicle--dim {
+    opacity: 0.45;
+}
+
+.td-biztype--dim {
+    opacity: 0.45;
+}
+
+/* License tag (RiderApplications) */
+.td-license {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    font-family: var(--font-secondary), monospace;
+    letter-spacing: 0.03em;
+}
+
+.td-license--ok {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+}
+
+.td-license--expired {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+}
+
+/* Date cell — normal and muted (rejected rows) */
+.td-date {
+    font-size: var(--fs-small);
+    color: rgba(255,255,255,0.55);
+    white-space: nowrap;
+}
+
+.td-date--muted {
+    font-size: var(--fs-small);
+    color: rgba(255,255,255,0.3);
+    white-space: nowrap;
+}

@@ -1,0 +1,75 @@
+﻿/*
+    v1.0.3
+*/
+/*ADMIN - ACTIVITY LIST LAYOUT & DESIGN */
+.admin-activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.15s ease;
+}
+
+.admin-activity-item:last-child {
+    border-bottom: none;
+}
+
+.admin-activity-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* ── Icon box ── */
+.admin-activity-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.admin-activity-icon--rider {
+    background: var(--info-bg-subtle);
+    color: var(--info-color);
+}
+
+.admin-activity-icon--merchant {
+    background: var(--purple-bg-subtle);
+    color: var(--purple-color);
+}
+
+.admin-activity-icon--order {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+}
+
+.admin-activity-icon--system {
+    background: var(--warning-bg-subtle);
+    color: var(--warning-color);
+}
+
+/* ── Text ── */
+.admin-activity-text {
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--lh-compact);
+}
+
+.admin-activity-text strong {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.admin-activity-time {
+    font-size: var(--fs-micro);
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 2px;
+}

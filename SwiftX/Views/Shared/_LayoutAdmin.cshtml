@@ -1,7 +1,14 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+   ADMIN LAYOUT
 *@
 @{
+
+    var ctrl   = ViewContext.RouteData.Values["controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+
+    string NavClass(string c, string a) =>
+        ctrl == c && action == a ? "admin-nav-item active" : "admin-nav-item";
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +21,7 @@
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />  <!-- CDN-like link for Tailwind CSS -->
     <link rel="stylesheet" href="~/css/admin/admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin/riders.css" asp-append-version="true" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
 
@@ -25,84 +33,121 @@
 </head>
 <body class="__fullpage">
     <div class="admin-layout">
-        <!-- SIDE BAR NAV -->
-        <div class="admin-sidebar-overlay"></div>
 
-        <aside class="admin-sidebar">
+        <div class="admin-sidebar-overlay" id="sidebar-overlay"></div>
+
+        <aside class="admin-sidebar" id="admin-sidebar">
             <div class="admin-sidebar-logo">
                 <img src="~/assets/images/swiftX_logo.png" alt="SwiftX" />
                 <span>Admin</span>
             </div>
 
-            <nav class="admin-sidebar-nav">
+            <nav class="admin-sidebar-nav" aria-label="Admin navigation">
+
                 <div class="admin-nav-group">
                     <p class="admin-nav-group-label">Main</p>
-                    <a asp-area="" asp-controller="Admin" asp-action="Dashboard" class="admin-nav-item">
-                        <i class="ph ph-squares-four"></i> Dashboard
+                    <a asp-controller="Admin" asp-action="Dashboard"
+                       class="@NavClass("Admin", "Dashboard")">
+                        <i class="ph ph-squares-four" aria-hidden="true"></i>
+                        <span class="admin-nav-text">Dashboard</span>
                     </a>
-                    <a asp-area="" asp-controller="Admin" asp-action="#" class="admin-nav-item">
-                        <i class="ph ph-package"></i> Orders
+                    <a asp-controller="Admin" asp-action="Orders"
+                       class="@NavClass("Admin", "Orders")">
+                        <i class="ph ph-package" aria-hidden="true"></i>
+                        <span class="admin-nav-text">Orders</span>
                     </a>
                 </div>
+
                 <div class="admin-nav-group">
                     <p class="admin-nav-group-label">Management</p>
-                    <a asp-area="" asp-controller="Admin" asp-action="#" class="admin-nav-item">
-                        <i class="ph ph-motorcycle"></i> Riders
+                    <a asp-controller="Admin" asp-action="Rider"
+                       class="@NavClass("Admin", "Rider")">
+                        <i class="ph ph-motorcycle" aria-hidden="true"></i>
+                        <span class="admin-nav-text">Riders</span>
                     </a>
-                    <a asp-area="" asp-controller="Admin" asp-action="#" class="admin-nav-item">
-                        <i class="ph ph-storefront"></i> Merchants
+                    <a asp-controller="Admin" asp-action="Merchant"
+                       class="@NavClass("Admin", "Merchant")">
+                        <i class="ph ph-storefront" aria-hidden="true"></i>
+                        <span class="admin-nav-text">Merchants</span>
                     </a>
                 </div>
+
                 <div class="admin-nav-group">
-                    <p class="admin-nav-group-label">System</p>
-                    <a asp-area="" asp-controller="Admin" asp-action="#" class="admin-nav-item">
-                        <i class="ph ph-gear"></i> Settings
+                    <p class="admin-nav-group-label">Applications</p>
+                    <a asp-controller="Admin" asp-action="RiderApplications"
+                       class="@NavClass("Admin", "RiderApplications")">
+                        <i class="ph ph-user-circle-plus" aria-hidden="true"></i>
+                        <span class="admin-nav-text">Rider Applications</span>
+                    </a>
+                    <a asp-controller="Admin" asp-action="MerchantApplications"
+                       class="@NavClass("Admin", "MerchantApplications")">
+                        <i class="ph ph-clipboard-text" aria-hidden="true"></i>
+                        <span class="admin-nav-text">Merchant Applications</span>
                     </a>
                 </div>
+
             </nav>
 
             <div class="admin-sidebar-footer">
                 <div class="admin-user-info">
                     <div class="admin-user-avatar">
-                        <i class="ph ph-user"></i>
+                        <i class="ph ph-user" aria-hidden="true"></i>
                     </div>
                     <div>
                         <p class="admin-user-name">Admin User</p>
                         <p class="admin-user-role">Super Admin</p>
                     </div>
                 </div>
-                <a asp-area="" asp-controller="Admin" asp-action="#" class="admin-nav-item" style="margin-top:4px;">
-                    <i class="ph ph-sign-out"></i> Sign Out
+                <a asp-controller="Admin" asp-action="#"
+                   class="admin-nav-item" style="margin-top:4px;">
+                    <i class="ph ph-sign-out" aria-hidden="true"></i>
+                    <span class="admin-nav-text">Sign Out</span>
                 </a>
             </div>
         </aside>
 
-        <main role="main" class="admin-main">
+        <main class="admin-main" role="main">
             <header class="admin-topbar">
                 <div class="admin-topbar-left">
-                    <button type="button" class="admin-topbar-btn admin-sidebar-toggle" aria-label="Toggle sidebar">
-                        <i class="ph ph-list"></i>
+                    <button type="button"
+                            class="admin-topbar-btn admin-sidebar-toggle"
+                            id="sidebar-toggle"
+                            aria-label="Toggle sidebar"
+                            aria-expanded="false"
+                            aria-controls="admin-sidebar">
+                        <i class="ph ph-list" aria-hidden="true"></i>
                     </button>
-                    <h1 class="admin-topbar-title">Merchants</h1>
+                    <h1 class="admin-topbar-title">@(ViewData["Title"] ?? "Dashboard")</h1>
                 </div>
                 <div class="admin-topbar-right">
                     <button type="button" class="admin-topbar-btn" aria-label="Notifications">
-                        <i class="ph ph-bell"></i>
+                        <i class="ph ph-bell" aria-hidden="true"></i>
                     </button>
                 </div>
             </header>
 
-
-            @RenderBody()
-
-
+            <div class="admin-content">
+                @RenderBody()
+            </div>
         </main>
+
     </div>
+    <footer id="contact" class="px-6 py-6 md:py-8 bg-[var(--dark-bg-hero)] text-[var(--light-text-color)]">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-80">
+                <span class="text-[var(--primary-color)]">2026 © SwiftX All Rights Reserved</span>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables.net/dataTables.min.js"></script>
     <script src="~/js/admin.js"></script>
+    <script src="~/js/modal.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

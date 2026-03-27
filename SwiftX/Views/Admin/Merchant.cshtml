@@ -1,0 +1,231 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Merchant";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- STAT CARDS -->
+<div class="admin-stat-grid" style="margin-bottom:22px;">
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-check-circle"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 3%</span>
+        </div>
+        <p class="admin-stat-value">54</p>
+        <p class="admin-stat-label">Active Merchants</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-storefront"></i></div></div>
+        <p class="admin-stat-value">71</p>
+        <p class="admin-stat-label">Total Merchants</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-money"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 11%</span>
+        </div>
+        <p class="admin-stat-value">&#8369;86,400</p>
+        <p class="admin-stat-label">Settlements Due</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-chart-line-up"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 14%</span>
+        </div>
+        <p class="admin-stat-value">&#8369;310,500</p>
+        <p class="admin-stat-label">GMV (This Month)</p>
+    </div>
+</div>
+
+<!-- MAIN GRID: TABLE + SIDEBAR -->
+<div class="riders-layout">
+
+    <!-- TABLE CARD -->
+    <div class="admin-table-card" style="margin-bottom:0;">
+        <div class="admin-table-header">
+            <div>
+                <h2 class="admin-table-title">Merchant Management</h2>
+                <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px;">71 total &middot; 54 active &middot; 6 pending</p>
+            </div>
+            <div class="admin-table-actions">
+                <div class="admin-search">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="merchant-search" placeholder="Search merchants..." />
+                </div>
+                <div class="admin-filter-bar" id="merchant-filter-bar">
+                    <button class="admin-filter-btn active" data-filter="all">All</button>
+                    <button class="admin-filter-btn" data-filter="active">Active</button>
+                    <button class="admin-filter-btn" data-filter="inactive">Inactive</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-table-wrap">
+            <table class="admin-table" id="merchants_table">
+                <thead>
+                    <tr>
+                        <th>Merchant</th>
+                        <th>Status</th>
+                        <th>Phone</th>
+                        <th>Category</th>
+                        <th>Active Orders</th>
+                        <th style="width:120px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @* ACTIVE MERCHANT *@
+                    <tr>
+                        <td>
+                            <div class="td-merchant">
+                                <div class="td-merchant__avatar"><i class="ph ph-storefront"></i></div>
+                                <div>
+                                    <p class="td-merchant__name">Jollibee Malaybalay</p>
+                                    <p class="td-merchant__id">MER-001</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="admin-badge admin-badge--active"><span class="admin-badge-dot"></span>Active</span></td>
+                        <td>08821234567</td>
+                        <td><span class="td-category">Fast Food</span></td>
+                        <td><span class="td-orders td-orders--live"><i class="ph ph-package"></i> 5</span></td>
+                        <td>
+                            <div class="td-actions">
+                                <button class="admin-action-btn" title="View Merchant" onclick="openModal('merchant-detail-modal')"><i class="ph ph-eye"></i></button>
+                                <button class="admin-action-btn" title="Edit Merchant" onclick="openModal('merchant-edit-modal')"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="admin-action-btn admin-action-btn--danger-soft" title="Deactivate"><i class="ph ph-prohibit"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    @* INACTIVE EMRCHANT *@
+                    <tr>
+                        <td>
+                            <div class="td-merchant">
+                                <div class="td-merchant__avatar td-merchant__avatar--dim"><i class="ph ph-storefront"></i></div>
+                                <div>
+                                    <p class="td-merchant__name" style="color:rgba(255,255,255,0.35);">Brew & Bites Cafe</p>
+                                    <p class="td-merchant__id">MER-003</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="admin-badge admin-badge--inactive"><span class="admin-badge-dot"></span>Inactive</span></td>
+                        <td style="opacity:.4;">08824561234</td>
+                        <td><span class="td-category td-category--dim">Cafe</span></td>
+                        <td><span class="td-orders td-orders--zero">—</span></td>
+                        <td>
+                            <div class="td-actions">
+                                <button class="admin-action-btn" title="View Merchant" onclick="openModal('merchant-detail-modal')"><i class="ph ph-eye"></i></button>
+                                <button class="admin-action-btn admin-action-btn--success" title="Reactivate"><i class="ph ph-arrow-counter-clockwise"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="admin-pagination" id="merchants-dt-footer"></div>
+    </div>
+
+    <!-- OPS SIDEBAR -->
+    <div class="ops-sidebar">
+        <div class="ops-panel">
+            <div class="ops-panel__head">Merchant Operations</div>
+            <div class="ops-panel__body">
+                <a asp-controller="Admin" asp-action="RiderApplications" class="ops-btn">
+                    <div class="ops-btn__icon"><i class="ph ph-clipboard-text"></i></div>
+                    <div><p class="ops-btn__label">Review Applications</p><p class="ops-btn__meta">6 pending review</p></div>
+                    <i class="ph ph-arrow-right ops-btn__arrow"></i>
+                </a>
+                <button class="ops-btn" onclick="openModal('settlement-modal')">
+                    <div class="ops-btn__icon"><i class="ph ph-currency-circle-dollar"></i></div>
+                    <div><p class="ops-btn__label">Process Settlements</p><p class="ops-btn__meta">8 merchants pending</p></div>
+                    <i class="ph ph-arrow-right ops-btn__arrow"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="ops-panel">
+            <div class="ops-panel__head">Pending Applicants</div>
+            <div class="ops-panel__body" style="padding:8px;">
+                <div class="ops-applicant" onclick="openModal('merchant-application-modal')">
+                    <div class="ops-applicant__av"><i class="ph ph-storefront"></i></div>
+                    <div style="flex:1;min-width:0;">
+                        <p class="ops-applicant__name">Kusina ni Lola</p>
+                        <p class="ops-applicant__date">Applied Feb 19, 2026</p>
+                    </div>
+                    <span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span>
+                </div>
+                <div class="ops-applicant" onclick="openModal('merchant-application-modal')">
+                    <div class="ops-applicant__av"><i class="ph ph-storefront"></i></div>
+                    <div style="flex:1;min-width:0;">
+                        <p class="ops-applicant__name">Dimsum Diner</p>
+                        <p class="ops-applicant__date">Applied Feb 20, 2026</p>
+                    </div>
+                    <span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span>
+                </div>
+                <div class="ops-applicant" onclick="openModal('merchant-application-modal')">
+                    <div class="ops-applicant__av"><i class="ph ph-storefront"></i></div>
+                    <div style="flex:1;min-width:0;">
+                        <p class="ops-applicant__name">Pinoy Lutong Bahay</p>
+                        <p class="ops-applicant__date">Applied Feb 21, 2026</p>
+                    </div>
+                    <span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var merchantsTable = $('#merchants_table').DataTable({
+                pageLength: 10,
+                ordering: true,
+                searching:    true,
+                lengthChange: false,
+                dom: 't<"admin-pagination"<"dataTables_info"i><"admin-pagination-btns"p>>',
+                columnDefs: [
+                    { orderable: false, targets: [4, 5] }
+                ],
+                language: {
+                    paginate: {
+                        previous: '<i class="ph ph-caret-left"></i>',
+                        next:     '<i class="ph ph-caret-right"></i>'
+                    },
+                    info: 'Showing _START_–_END_ of _TOTAL_ merchants'
+                },
+                drawCallback: function () {
+                    $(this.api().table().container())
+                        .find('.dataTables_paginate .paginate_button')
+                        .addClass('admin-page-btn')
+                        .filter('.current').addClass('active');
+                }
+            });
+
+            $('#merchant-search').on('input', function () {
+                merchantsTable.search(this.value).draw();
+            });
+
+            $('#merchant-filter-bar').on('click', '.admin-filter-btn', function () {
+                $('#merchant-filter-bar .admin-filter-btn').removeClass('active');
+                $(this).addClass('active');
+                var f = $(this).data('filter');
+                merchantsTable.column(1).search(f === 'all' ? '' : '^' + f.charAt(0).toUpperCase() + f.slice(1) + '$', true, false).draw();
+            });
+        });
+    </script>
+}
+
+@await Html.PartialAsync("_ModalDocPreview")
+@await Html.PartialAsync("_ModalMerchantApplication")
+@await Html.PartialAsync("_ModalMerchantDetail")
+@await Html.PartialAsync("_ModalMerchantEdit")
+@*
+    @await Html.PartialAsync("_ModalMerchantSettlement")
+
+*@
+

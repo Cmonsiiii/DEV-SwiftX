@@ -7,12 +7,18 @@
 @import url('./layout/base.css');
 
 /* ── Components ── */
+@import url('./components/activity-list.css');
+@import url('./components/badges.css');
 @import url('./components/buttons.css');
 @import url('./components/cards.css');
-@import url('./components/pills.css');
 @import url('./components/faq.css');
 @import url('./components/icons.css');
+@import url('./components/modal.css');
 @import url('./components/nav.css');
+@import url('./components/pills.css');
+@import url('./components/stat-cards.css');
+@import url('./components/table.css');
+
 
 /* ── Utilities ── */
 @import url('./utilities/animations.css');

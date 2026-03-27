@@ -1,0 +1,237 @@
+﻿@{
+
+}
+
+<div class="admin-modal-overlay" id="rider-application-modal">
+    <div class="admin-modal admin-modal--lg">
+        <div class="admin-modal__header">
+            <h2 class="admin-modal__title">
+                <i class="ph ph-file-text"></i> Rider Application Review
+            </h2>
+            <button class="admin-modal__close" onclick="closeModal('rider-application-modal')">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="admin-modal__body">
+
+            <!-- ══ HERO ══ -->
+            <div class="appmod-hero">
+                <div class="appmod-hero__photo-wrap">
+                    <img class="appmod-hero__photo"
+                         src="~/Assets/images/profile.jpg"
+                         alt="Carlo Mendoza"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                    <div class="appmod-hero__photo-fallback" style="display:none;">
+                        <i class="ph ph-user"></i>
+                    </div>
+                    <span class="appmod-hero__dot"></span>
+                </div>
+
+                <div class="appmod-hero__info">
+                    <p class="appmod-hero__name">Carlo Mendoza</p>
+                    <div class="appmod-hero__meta">
+                        <span class="admin-badge admin-badge--pending">
+                            <span class="admin-badge-dot"></span>Pending Review
+                        </span>
+                        <span class="appmod-hero__chip">
+                            <i class="ph ph-calendar-blank"></i> Applied Feb 18, 2026
+                        </span>
+                    </div>
+                </div>
+
+                <span class="appmod-hero__chip appmod-hero__chip--id">
+                    <i class="ph ph-hash"></i> APP-2026-031
+                </span>
+            </div>
+
+            <!-- ══ BODY: 2 columns ══ -->
+            <div class="appmod-body">
+
+                <!-- Left: Applicant Info -->
+                <div class="admin-modal-section">
+                    <h3 class="admin-modal-section__title">
+                        <i class="ph ph-identification-card admin-modal-section__icon"></i>
+                        Applicant Information
+                    </h3>
+                    <div class="appmod-info-grid">
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Full Name</span>
+                            <span class="admin-modal-info-field__value">Carlo Mendoza</span>
+                        </div>
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Date of Birth</span>
+                            <span class="admin-modal-info-field__value">Nov 25, 2000</span>
+                        </div>
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">Contact</span>
+                            <span class="admin-modal-info-field__value">09981-234-567</span>
+                        </div>
+                        <div class="admin-modal-info-field">
+                            <span class="admin-modal-info-field__label">GCash Number</span>
+                            <span class="admin-modal-info-field__value">09981-234-567</span>
+                        </div>
+                        <div class="admin-modal-info-field admin-modal-info-field--full">
+                            <span class="admin-modal-info-field__label">Email</span>
+                            <span class="admin-modal-info-field__value">carlo@email.com</span>
+                        </div>
+                        <div class="admin-modal-info-field admin-modal-info-field--full">
+                            <span class="admin-modal-info-field__label">Address</span>
+                            <span class="admin-modal-info-field__value">
+                                Purok 3, Brgy. Lumbayao, Valencia City
+                            </span>
+                        </div>
+                        <div class="admin-modal-info-field admin-modal-info-field--full">
+                            <span class="admin-modal-info-field__label">Vehicle Type</span>
+                            <span class="admin-modal-info-field__value">
+                                Motorcycle — Honda Click 125i
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Submitted Requirements -->
+                <div class="admin-modal-section">
+                    <h3 class="admin-modal-section__title">
+                        <i class="ph ph-files admin-modal-section__icon"></i>
+                        Submitted Requirements
+                    </h3>
+                    <div class="admin-modal-doc-list">
+
+                        @* SAMPLE IMAGE PREVIEW *@
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Professional Driver's License</span>
+                                <button class="admin-modal-doc__preview-btn"
+                                        onclick="openDocPreview('image', '../assets/docs/license.jpg', 'Driver\'s License')">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve active">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Secondary Government ID</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve active">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        @* SAMPLE PDF PREVIEW *@
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">OR / CR of Motorcycle</span>
+                                <button class="admin-modal-doc__preview-btn"
+                                        onclick="openDocPreview('pdf', '../assets/docs/sampleDocumentPrev.pdf', 'OR/CR of Motorcycle')">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral active">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Clear Vehicle Photos</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral active">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-modal-doc admin-modal-doc--redesigned">
+                            <div class="admin-modal-doc__top">
+                                <span class="admin-modal-doc__name">Verified GCash Account</span>
+                                <button class="admin-modal-doc__preview-btn">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                            </div>
+                            <div class="admin-modal-toggle-group">
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--approve">
+                                    <i class="ph ph-check-circle"></i> Approve
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--neutral">
+                                    <i class="ph ph-minus-circle"></i> Pending
+                                </button>
+                                <button class="admin-modal-toggle-btn admin-modal-toggle-btn--reject active">
+                                    <i class="ph ph-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /.appmod-body -->
+            <!-- ══ DECISION BAR ══ -->
+            <div class="appmod-decision">
+                <div class="appmod-decision__textarea-wrap">
+                    <span class="admin-modal-info-label">
+                        Notes for Applicant
+                        <span class="admin-modal-info-label__hint">
+                            (optional — shown to applicant)
+                        </span>
+                    </span>
+                    <textarea class="admin-modal-textarea"
+                              placeholder="e.g. OR/CR photo is blurry, please resubmit a clearer copy..."></textarea>
+                </div>
+                <div class="appmod-decision__actions">
+                    <button class="admin-modal-btn admin-modal-btn--ghost"
+                            onclick="closeModal('rider-application-modal')">
+                        Cancel
+                    </button>
+                    <button class="admin-modal-btn admin-modal-btn--reject">
+                        <i class="ph ph-x-circle"></i> Reject
+                    </button>
+                    <button class="admin-modal-btn admin-modal-btn--approve">
+                        <i class="ph ph-check-circle"></i> Accept Application
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

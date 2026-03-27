@@ -1,38 +1,55 @@
+/*
+    v1.0.3 - homepage navigation
+*/
+
 /* ══════════════════════════════════════
    NAVIGATION
    ══════════════════════════════════════ */
 
-/* Nav: hamburger → X when open */
-.nav-open .nav-bar:nth-child(1){
-        transform: translateY(7px) rotate(45deg);
-}
-.nav-open .nav-bar:nth-child(2){
-        opacity: 0;
-}
-.nav-open .nav-bar:nth-child(3){
-        transform: translateY(-7px) rotate(-45deg);
+/* ── Hamburger → X animation ── */
+.nav-open .nav-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
 }
 
+.nav-open .nav-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-open .nav-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile menu drawer ── */
 .__nav-menu {
-  transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 }
 
+.nav-open .__nav-menu {
+    max-height: 80vh;
+    overflow: auto;
+}
+
+/* ── Nav links ── */
 .__nav-link {
-  color: var(--light-text-color);
-  text-decoration: none;
-  font-weight: 500;
-  opacity: 0.9;
-  transition: color 0.2s ease, opacity 0.2s ease;
-}
-.__nav-link:hover {
-  opacity: 1;
-  color: var(--primary-color);
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+    opacity: 0.9;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
+    .__nav-link:hover {
+        opacity: 1;
+        color: var(--primary-color);
+    }
+
+/* ── Toggle button ── */
 .__nav-toggle {
-  color: var(--light-text-color);
+    color: var(--light-text-color);
 }
-.__nav-toggle:hover,
-.__nav-toggle:focus {
-  background: rgba(255, 255, 255, 0.1);
-}
+
+    .__nav-toggle:hover,
+    .__nav-toggle:focus {
+        background: rgba(255, 255, 255, 0.1);
+    }

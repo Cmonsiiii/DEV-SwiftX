@@ -1,0 +1,57 @@
+﻿/*
+    v1.0.3
+*/
+
+
+/* ── Status Badges ── */
+.admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: var(--fs-micro);
+    font-weight: var(--fw-semibold);
+}
+
+.admin-badge--active {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+}
+
+.admin-badge--pending {
+    background: var(--warning-bg-subtle);
+    color: var(--warning-color);
+}
+
+.admin-badge--inactive {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.admin-badge--rejected {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+}
+
+.admin-badge--delivered {
+    background: var(--success-bg-subtle);
+    color: var(--success-color);
+}
+
+.admin-badge--in-transit {
+    background: var(--info-bg-subtle);
+    color: var(--info-color);
+}
+
+.admin-badge--cancelled {
+    background: var(--danger-bg-subtle);
+    color: var(--danger-color);
+}
+
+.admin-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
