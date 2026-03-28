@@ -1,204 +1,233 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    ViewData["Title"] = "Riders Application";
+﻿@{
+    ViewData["Title"] = "Riders";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="admin-stat-grid" style="margin-bottom:22px;">
+@* {{-- ── Stat Cards ── --}} *@
+<div class="admin-stat-grid">
     <div class="admin-stat-card">
         <div class="admin-stat-header">
-            <div class="admin-stat-icon"><i class="ph ph-clock"></i></div>
-            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 6</span>
+            <div class="admin-stat-icon"><i class="ph ph-check-circle"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 4%</span>
         </div>
-        <p class="admin-stat-value">24</p>
-        <p class="admin-stat-label">Pending Review</p>
-    </div>
-    <div class="admin-stat-card">
-        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-check-circle"></i></div></div>
         <p class="admin-stat-value">86</p>
-        <p class="admin-stat-label">Accepted</p>
+        <p class="admin-stat-label">Active Riders</p>
     </div>
     <div class="admin-stat-card">
-        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-x-circle"></i></div></div>
-        <p class="admin-stat-value">12</p>
-        <p class="admin-stat-label">Rejected</p>
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-motorcycle"></i></div>
+        </div>
+        <p class="admin-stat-value">128</p>
+        <p class="admin-stat-label">Total Riders</p>
     </div>
     <div class="admin-stat-card">
-        <div class="admin-stat-header"><div class="admin-stat-icon"><i class="ph ph-users"></i></div></div>
-        <p class="admin-stat-value">122</p>
-        <p class="admin-stat-label">Total Applications</p>
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-money"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 9%</span>
+        </div>
+        <p class="admin-stat-value">&#8369;48,200</p>
+        <p class="admin-stat-label">Rider Payouts</p>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-header">
+            <div class="admin-stat-icon"><i class="ph ph-chart-line-up"></i></div>
+            <span class="admin-stat-badge admin-stat-badge--up"><i class="ph ph-arrow-up"></i> 12%</span>
+        </div>
+        <p class="admin-stat-value">&#8369;152,800</p>
+        <p class="admin-stat-label">Revenue (This Month)</p>
     </div>
 </div>
 
-<!-- TABLE CARD -->
-<div class="admin-table-card">
-    <div class="admin-table-header">
-        <div>
-            <h2 class="admin-table-title">All Rider Applications</h2>
-            <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px;">
-                122 total &middot; 24 pending &middot; 86 accepted &middot; 12 rejected
-            </p>
-        </div>
-        <div class="admin-table-actions">
-            <div class="admin-search">
-                <i class="ph ph-magnifying-glass"></i>
+@* {{-- ── Main Grid: Table + Ops Sidebar ── --}} *@
+<div class="riders-layout">
 
-                <input type="text" id="apps-search" placeholder="Search applicants..." />
+    @*   {{-- TABLE CARD --}} *@
+    <div class="admin-table-card admin-table-card--flush">
+        <div class="admin-table-header">
+            <div>
+                <h2 class="admin-table-title">Rider Management</h2>
+                <p class="admin-table-subtitle">128 total &middot; 86 active &middot; 4 pending</p>
             </div>
-            <div class="admin-filter-bar" id="apps-filter-bar">
-                <button class="admin-filter-btn active" data-filter="all">All</button>
-                <button class="admin-filter-btn" data-filter="pending">Pending</button>
-                <button class="admin-filter-btn" data-filter="approved">Approved</button>
-                <button class="admin-filter-btn" data-filter="rejected">Rejected</button>
+            <div class="admin-table-actions">
+                <div class="admin-search">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="rider-search" placeholder="Search riders..." aria-label="Search riders" />
+                </div>
+                <div class="admin-filter-bar" id="rider-filter-bar" role="group" aria-label="Filter by status">
+                    <button class="admin-filter-btn active" data-filter="all">All</button>
+                    <button class="admin-filter-btn" data-filter="active">Active</button>
+                    <button class="admin-filter-btn" data-filter="inactive">Inactive</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-table-wrap">
+            <table class="admin-table" id="riders_table">
+                <thead>
+                    <tr>
+                        <th>Rider</th>
+                        <th>Status</th>
+                        <th>Phone</th>
+                        <th>Plate #</th>
+                        <th>Active Orders</th>
+                        <th style="width:120px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @*   {{-- Active rider --}} *@
+                    <tr>
+                        <td>
+                            <div class="td-rider">
+                                <div class="td-rider__avatar"><i class="ph ph-user"></i></div>
+                                <div>
+                                    <p class="td-rider__name">Leo Fernandez</p>
+                                    <p class="td-rider__id">Rider-005</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="admin-badge admin-badge--active"><span class="admin-badge-dot"></span>Active</span></td>
+                        <td>09321234567</td>
+                        <td><span class="td-plate">JKL-345</span></td>
+                        <td><span class="td-orders td-orders--live"><i class="ph ph-package"></i> 2</span></td>
+                        <td>
+                            <div class="td-actions">
+                                <button class="admin-action-btn" title="View Rider"
+                                        onclick="openModal('rider-detail-modal')">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                                <button class="admin-action-btn" title="Edit Rider" onclick="openModal('rider-edit-modal')">
+
+                                    <i class="ph ph-pencil-simple"></i>
+                                </button>
+                                <button class="admin-action-btn admin-action-btn--danger-soft" title="Deactivate">
+                                    <i class="ph ph-prohibit"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    @*   {{-- INACTIVE rider --}} *@
+                    <tr>
+                        <td>
+                            <div class="td-rider">
+                                <div class="td-rider__avatar td-rider__avatar--dim"><i class="ph ph-user"></i></div>
+                                <div>
+                                    <p class="td-rider__name td-rider__name--dim">Rico Tan</p>
+                                    <p class="td-rider__id">Rider-006</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="admin-badge admin-badge--inactive"><span class="admin-badge-dot"></span>Inactive</span></td>
+                        <td class="td-cell--dim">09451234567</td>
+                        <td><span class="td-plate td-plate--dim">MNO-678</span></td>
+                        <td><span class="td-orders td-orders--zero">—</span></td>
+                        <td>
+                            <div class="td-actions">
+                                <button class="admin-action-btn" title="View Rider"
+                                        onclick="openModal('rider-detail-modal')">
+                                    <i class="ph ph-eye"></i>
+                                </button>
+                                <button class="admin-action-btn admin-action-btn--success" title="Reactivate">
+                                    <i class="ph ph-arrow-counter-clockwise"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @* {{-- OPS SIDEBAR PANEL --}} *@
+    <div class="ops-sidebar">
+        <div class="ops-panel">
+            <div class="ops-panel__head">Rider Operations</div>
+            <div class="ops-panel__body">
+                <a asp-controller="Admin" asp-action="RiderApplications" class="ops-btn">
+                    <div class="ops-btn__icon"><i class="ph ph-user-circle-plus"></i></div>
+                    <div>
+                        <p class="ops-btn__label">Review Applications</p>
+                        <p class="ops-btn__meta">4 pending review</p>
+                    </div>
+                    <i class="ph ph-arrow-right ops-btn__arrow"></i>
+                </a>
+                <button class="ops-btn" onclick="openModal('payout-modal')">
+                    <div class="ops-btn__icon"><i class="ph ph-currency-circle-dollar"></i></div>
+                    <div>
+                        <p class="ops-btn__label">Process Payouts</p>
+                        <p class="ops-btn__meta">5 riders pending</p>
+                    </div>
+                    <i class="ph ph-arrow-right ops-btn__arrow"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="ops-panel">
+            <div class="ops-panel__head">Pending Applicants</div>
+            <div class="ops-panel__body ops-panel__body--compact">
+                @* RECENT APPLICANTS (5 CARDS OR LESS) *@
+                <div class="ops-applicant" onclick="openModal('rider-application-modal')">
+                    <div class="ops-applicant__av"><i class="ph ph-user"></i></div>
+                    <div class="ops-applicant__body">
+                        <p class="ops-applicant__name">Carlo Mendoza</p>
+                        <p class="ops-applicant__date">Applied Feb 18, 2026</p>
+                    </div>
+                    <span class="admin-badge admin-badge--pending">
+                        <span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span>
+                    </span>
+                </div>
+                <div class="ops-applicant" onclick="openModal('rider-application-modal')">
+                    <div class="ops-applicant__av"><i class="ph ph-user"></i></div>
+                    <div class="ops-applicant__body">
+                        <p class="ops-applicant__name">Renz Bautista</p>
+                        <p class="ops-applicant__date">Applied Feb 19, 2026</p>
+                    </div>
+                    <span class="admin-badge admin-badge--pending">
+                        <span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span>
+                    </span>
+                </div>
+                <div class="ops-applicant" onclick="openModal('rider-application-modal')">
+                    <div class="ops-applicant__av"><i class="ph ph-user"></i></div>
+                    <div class="ops-applicant__body">
+                        <p class="ops-applicant__name">Jayson Dela Cruz</p>
+                        <p class="ops-applicant__date">Applied Feb 21, 2026</p>
+                    </div>
+                    <span class="admin-badge admin-badge--pending">
+                        <span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="admin-table-wrap">
-
-        <table class="admin-table" id="apps_table">
-            <thead>
-                <tr>
-                    <th>Applicant</th>
-                    <th>Vehicle</th>
-                    <th>License #</th>
-                    <th>Applied</th>
-                    <th>Status</th>
-                    <th style="width:120px;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @* PENDING *@
-                <tr>
-                    <td>
-                        <div class="td-person">
-                            <div class="td-person__avatar"><i class="ph ph-user"></i></div>
-                            <div>
-                                <p class="td-person__name">Carlo Mendoza</p>
-                                <p class="td-person__sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff9c9e8d9390bf9a929e9693d19c9092">[email&#160;protected]</a> &middot; 0917-123-4567</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="td-vehicle">
-                            <i class="ph ph-motorcycle"></i>
-                            <span class="td-vehicle__label">Motorcycle — Honda Click</span>
-                        </div>
-                    </td>
-                    <td><span class="td-license td-license--ok">DL-0012345</span></td>
-                    <td class="td-date">Feb 24, 2026</td>
-                    <td><span class="admin-badge admin-badge--pending"><span class="admin-badge-dot"></span>Pending</span></td>
-                    <td>
-                        <div class="admin-actions-cell">
-                            <button class="admin-action-btn" title="View Application"
-                                    onclick="openModal('rider-application-modal')">
-                                <i class="ph ph-eye"></i>
-                            </button>
-                            <button class="admin-action-btn admin-action-btn--approve" title="Quick Accept">
-                                <i class="ph ph-check"></i>
-                            </button>
-                            <button class="admin-action-btn admin-action-btn--reject" title="Quick Reject">
-                                <i class="ph ph-x"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-
-
-                @* ACCEPTED/ APPROVED *@
-                <tr>
-                    <td>
-                        <div class="td-person">
-                            <div class="td-person__avatar"><i class="ph ph-user"></i></div>
-                            <div>
-                                <p class="td-person__name">James Ocampo</p>
-                                <p class="td-person__sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97fdf6faf2e4d7f2faf6fefbb9f4f8fa">[email&#160;protected]</a> &middot; 0921-567-8901</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="td-vehicle">
-                            <i class="ph ph-motorcycle"></i>
-                            <span class="td-vehicle__label">Motorcycle — Suzuki Raider</span>
-                        </div>
-                    </td>
-                    <td><span class="td-license td-license--ok">DL-0011223</span></td>
-                    <td class="td-date">Jan 12, 2026</td>
-                    <td><span class="admin-badge admin-badge--active"><span class="admin-badge-dot"></span>Approved</span></td>
-                    <td>
-                        <div class="admin-actions-cell">
-                            <button class="admin-action-btn" title="View Application"
-                                    onclick="openModal('rider-application-modal')">
-                                <i class="ph ph-eye"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-
-                @* REJECTED *@
-                <tr>
-                    <td>
-                        <div class="td-person td-person--muted">
-                            <div class="td-person__avatar td-person__avatar--muted"><i class="ph ph-user"></i></div>
-                            <div>
-                                <p class="td-person__name">Dennis Ramos</p>
-                                <p class="td-person__sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bbdfded5d5d2c8fbded6dad2d795d8d4d6">[email&#160;protected]</a> &middot; 0923-789-0123</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="td-vehicle td-vehicle--dim">
-                            <i class="ph ph-motorcycle"></i>
-                            <span class="td-vehicle__label">Motorcycle — Honda XRM</span>
-                        </div>
-                    </td>
-                    <td>
-                        <span class="td-license td-license--expired">
-                            <i class="ph ph-warning-circle"></i> Expired
-                        </span>
-                    </td>
-                    <td class="td-date td-date--muted">Jan 28, 2026</td>
-                    <td><span class="admin-badge admin-badge--rejected"><span class="admin-badge-dot"></span>Rejected</span></td>
-                    <td>
-                        <div class="admin-actions-cell">
-                            <button class="admin-action-btn" title="View Application"
-                                    onclick="openModal('rider-application-modal')">
-                                <i class="ph ph-eye"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <div class="admin-pagination" id="apps-dt-footer"></div>
 </div>
+@await Html.PartialAsync("_ModalRiderApplication")
+@await Html.PartialAsync("_ModalDocPreview")
+@await Html.PartialAsync("_ModalPayout")
+@await Html.PartialAsync("_ModalRiderDetail")
+@await Html.PartialAsync("_ModalRiderEdit")
 
 @section Scripts {
     <script>
-        $(function () {
-            var appsTable = $('#apps_table').DataTable({
-                pageLength: 10,
-                ordering: true,
+        $(document).ready(function () {
+            var ridersTable = $('#riders_table').DataTable({
+                pageLength:   10,
+                ordering:     true,
                 searching:    true,
                 lengthChange: false,
-                responsive: true,
-                autoWidth: false,
                 dom: 't<"admin-pagination"<"dataTables_info"i><"admin-pagination-btns"p>>',
-                columnDefs: [
-                    { orderable: false, targets: [5] }
-                ],
+                columnDefs: [{ orderable: false, targets: [4, 5] }],
                 language: {
                     paginate: {
                         previous: '<i class="ph ph-caret-left"></i>',
                         next:     '<i class="ph ph-caret-right"></i>'
                     },
-                    info: 'Showing _START_–_END_ of _TOTAL_ applicants'
+                    info: 'Showing _START_–_END_ of _TOTAL_ riders'
                 },
                 drawCallback: function () {
                     $(this.api().table().container())
@@ -208,20 +237,39 @@
                 }
             });
 
-            $('#apps-search').on('input', function () {
-                appsTable.search(this.value).draw();
+            $('#rider-search').on('input', function () {
+                ridersTable.search(this.value).draw();
             });
 
-            $('#apps-filter-bar').on('click', '.admin-filter-btn', function () {
-                $('#apps-filter-bar .admin-filter-btn').removeClass('active');
+            $('#rider-filter-bar').on('click', '.admin-filter-btn', function () {
+                $('#rider-filter-bar .admin-filter-btn').removeClass('active');
                 $(this).addClass('active');
                 var f = $(this).data('filter');
-                var term = f === 'all' ? '' : '^' + f.charAt(0).toUpperCase() + f.slice(1) + '$';
-                appsTable.column(4).search(term, true, false).draw();
+                ridersTable.column(1).search(f === 'all' ? '' : '^' + f.charAt(0).toUpperCase() + f.slice(1) + '$', true, false).draw();
+            });
+
+
+            $('#rider-activity-table').DataTable({
+                pageLength: 5,
+                lengthChange: false,
+                searching: false,
+                ordering: true,
+                info: false,
+                dom: 't<"admin-pagination"<"admin-pagination-btns"p>>',
+                language: {
+                    paginate: {
+                        previous: '<i class="ph ph-caret-left"></i>',
+                        next:     '<i class="ph ph-caret-right"></i>'
+                    }
+                },
+                drawCallback: function () {
+                    $(this.api().table().container())
+                        .find('.dataTables_paginate .paginate_button')
+                        .addClass('admin-page-btn')
+                        .filter('.current').addClass('active');
+                }
             });
         });
+
     </script>
 }
-
-@await Html.PartialAsync("_ModalRiderApplication")
-@await Html.PartialAsync("_ModalDocPreview")
