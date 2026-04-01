@@ -85,7 +85,6 @@
                         <span class="admin-nav-text">Merchant Applications</span>
                     </a>
                 </div>
-
             </nav>
 
             <div class="admin-sidebar-footer">
@@ -136,6 +135,9 @@
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-80">
                 <span class="text-[var(--primary-color)]">2026 © SwiftX All Rights Reserved</span>
+                
+                @* ALERT MODAL EXAMPLE, DELETE AFTER TESTING *@
+                <button class="text-[var(--primary-color)] hover:underline" onclick="alertModal()">Alert Modal</button>
             </div>
         </div>
     </footer>
@@ -146,8 +148,45 @@
     <script src="~/lib/datatables.net/dataTables.min.js"></script>
     <script src="~/js/admin.js"></script>
     <script src="~/js/modal.js"></script>
+    <script src="~/js/modal-alert.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    @await Html.PartialAsync("_ModalAlert")
+    @*
+        EXAMPLE USAGE ON HOW TO USE ALERT MODAL IN ADMIN PAGES:
+
+        <button class="admin-action-btn" 
+                onclick="AlertModal.show({
+                    type: 'danger', OR 'success' OR 'warning' OR 'info'
+                    title: 'Cancel Order',
+                    message: 'Cancel <strong>#ORD-1248</strong>? This cannot be undone.',
+                    buttons: [
+                        { label: 'Keep Order',   variant: 'ghost' },
+                        { label: 'Cancel Order', variant: 'danger', callback: function() { cancelOrder(1248); } }
+                    ]
+                })">
+            <i class="ph ph-x-circle"></i>
+        </button>
+
+        see modal-alert.js for more details and examples.
+        
+        IMPORTANT: DELETE AFTER DONE
+    *@
+
+
+    <script>
+        function alertModal(){
+            AlertModal.show({
+                    type: 'info',
+                    title: 'Title Here',
+                    message: 'Error',
+                    buttons: [
+                        { label: 'Keep Order',   variant: 'ghost' },
+                    ]
+                })
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

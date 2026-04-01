@@ -1,0 +1,67 @@
+﻿@*
+    _ModalAlert.cshtml — Reusable Alert Modal
+    ─────────────────────────────────────────
+    Call from JS:
+        AlertModal.show(options)
+
+    Options object:
+        type      : 'danger' | 'warning' | 'success' | 'info'   (default: 'warning')
+        icon      : Phosphor icon class string                    (auto-set by type if omitted)
+        title     : string  — bold headline
+        message   : string  — body text (supports HTML)
+        buttons   : array of button objects (2 or 3 buttons)
+                    {
+                        label    : 'Confirm',
+                        variant  : 'danger' | 'primary' | 'warning' | 'success' | 'ghost',
+                        callback : function() { ... }   // optional, called on click
+                    }
+
+    Examples:
+        // 2-button confirm
+        AlertModal.show({
+            type    : 'danger',
+            title   : 'Cancel Order',
+            message : 'Are you sure you want to cancel <strong>#ORD-1248</strong>? This cannot be undone.',
+            buttons : [
+                { label: 'Keep Order',    variant: 'ghost'  },
+                { label: 'Cancel Order',  variant: 'danger', callback: () => cancelOrder(id) }
+            ]
+        });
+
+        // 3-button choice
+        AlertModal.show({
+            type    : 'warning',
+            title   : 'Rider Unavailable',
+            message : 'James Ocampo is offline. What would you like to do?',
+            buttons : [
+                { label: 'Dismiss',         variant: 'ghost'   },
+                { label: 'Reassign Rider',  variant: 'warning', callback: () => openReassign() },
+                { label: 'Cancel Order',    variant: 'danger',  callback: () => cancelOrder()  }
+            ]
+        });
+*@
+
+<div class="admin-modal-overlay" id="alert-modal-overlay">
+    <div class="admin-modal admin-modal--sm alert-modal" id="alert-modal">
+
+        <!-- Icon + Title -->
+        <div class="alert-modal__head">
+            <div class="alert-modal__icon-wrap" id="alert-modal-icon-wrap">
+                <i class="ph" id="alert-modal-icon"></i>
+            </div>
+            <div class="alert-modal__titles">
+                <h3 class="alert-modal__title" id="alert-modal-title"></h3>
+                <p class="alert-modal__message" id="alert-modal-message"></p>
+            </div>
+            <button class="admin-modal__close" onclick="AlertModal.close()">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+
+        <!-- Footer actions -->
+        <div class="alert-modal__footer" id="alert-modal-footer">
+            <!-- Buttons injected by JS -->
+        </div>
+
+    </div>
+</div>

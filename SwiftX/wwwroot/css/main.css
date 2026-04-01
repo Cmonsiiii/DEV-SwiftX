@@ -18,7 +18,7 @@
 @import url('./components/pills.css');
 @import url('./components/stat-cards.css');
 @import url('./components/table.css');
-
+@import url('./components/modal-alert.css');
 
 /* ── Utilities ── */
 @import url('./utilities/animations.css');
