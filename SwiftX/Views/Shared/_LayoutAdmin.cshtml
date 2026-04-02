@@ -137,7 +137,7 @@
                 <span class="text-[var(--primary-color)]">2026 © SwiftX All Rights Reserved</span>
                 
                 @* ALERT MODAL EXAMPLE, DELETE AFTER TESTING *@
-                <button class="text-[var(--primary-color)] hover:underline" onclick="alertModal()">Alert Modal</button>
+                <button class="text-[var(--primary-color)] hover:underline" onclick="onclickAlertModal()">Alert Modal</button>
             </div>
         </div>
     </footer>
@@ -175,13 +175,25 @@
 
 
     <script>
-        function alertModal(){
+        window.onload = function() {
+            AlertModal.show({
+                    type: 'info',
+                    title: 'Title Here',
+                    message: 'Debug Here',
+                    buttons: [
+                        { label: 'Okay',   variant: 'ghost' },
+                    ]
+                })
+        };
+
+        function onclickAlertModal(){
             AlertModal.show({
                     type: 'info',
                     title: 'Title Here',
                     message: 'Error',
                     buttons: [
-                        { label: 'Keep Order',   variant: 'ghost' },
+                        { label: 'Cancel',   variant: 'ghost' },
+                        { label: 'Okay',   variant: 'danger' },
                     ]
                 })
         }
